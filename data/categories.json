@@ -1,0 +1,8 @@
+{
+ "_split": {
+  "games": "test",
+  "places": "val"
+ },
+ "Name a website or app designed for learning or studying (not apps/sites only for taking notes)": "brands",
+ "Name a sport where competitors wear helmets": "sports"
+}

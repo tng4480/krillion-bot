@@ -1,0 +1,3002 @@
+[
+{
+"word": "black",
+"pos": "pre",
+"prompts": 78,
+"hits": 432
+},
+{
+"word": "blue",
+"pos": "pre",
+"prompts": 67,
+"hits": 273
+},
+{
+"word": "red",
+"pos": "pre",
+"prompts": 66,
+"hits": 326
+},
+{
+"word": "water",
+"pos": "pre",
+"prompts": 63,
+"hits": 129
+},
+{
+"word": "white",
+"pos": "pre",
+"prompts": 60,
+"hits": 197
+},
+{
+"word": "snow",
+"pos": "pre",
+"prompts": 59,
+"hits": 85
+},
+{
+"word": "green",
+"pos": "pre",
+"prompts": 51,
+"hits": 191
+},
+{
+"word": "chinese",
+"pos": "pre",
+"prompts": 51,
+"hits": 150
+},
+{
+"word": "mountain",
+"pos": "pre",
+"prompts": 50,
+"hits": 177
+},
+{
+"word": "ice",
+"pos": "pre",
+"prompts": 49,
+"hits": 108
+},
+{
+"word": "dark",
+"pos": "pre",
+"prompts": 48,
+"hits": 227
+},
+{
+"word": "american",
+"pos": "pre",
+"prompts": 46,
+"hits": 136
+},
+{
+"word": "golden",
+"pos": "pre",
+"prompts": 45,
+"hits": 226
+},
+{
+"word": "rock",
+"pos": "pre",
+"prompts": 44,
+"hits": 132
+},
+{
+"word": "sea",
+"pos": "pre",
+"prompts": 44,
+"hits": 91
+},
+{
+"word": "southern",
+"pos": "pre",
+"prompts": 41,
+"hits": 181
+},
+{
+"word": "little",
+"pos": "pre",
+"prompts": 41,
+"hits": 180
+},
+{
+"word": "yellow",
+"pos": "pre",
+"prompts": 41,
+"hits": 159
+},
+{
+"word": "sand",
+"pos": "pre",
+"prompts": 40,
+"hits": 85
+},
+{
+"word": "giant",
+"pos": "pre",
+"prompts": 39,
+"hits": 227
+},
+{
+"word": "african",
+"pos": "pre",
+"prompts": 39,
+"hits": 118
+},
+{
+"word": "northern",
+"pos": "pre",
+"prompts": 37,
+"hits": 169
+},
+{
+"word": "japanese",
+"pos": "pre",
+"prompts": 37,
+"hits": 152
+},
+{
+"word": "baby",
+"pos": "pre",
+"prompts": 37,
+"hits": 73
+},
+{
+"word": "beach",
+"pos": "pre",
+"prompts": 37,
+"hits": 66
+},
+{
+"word": "pink",
+"pos": "pre",
+"prompts": 35,
+"hits": 91
+},
+{
+"word": "wood",
+"pos": "pre",
+"prompts": 35,
+"hits": 82
+},
+{
+"word": "star",
+"pos": "pre",
+"prompts": 35,
+"hits": 63
+},
+{
+"word": "honey",
+"pos": "pre",
+"prompts": 35,
+"hits": 41
+},
+{
+"word": "brown",
+"pos": "pre",
+"prompts": 34,
+"hits": 188
+},
+{
+"word": "great",
+"pos": "pre",
+"prompts": 34,
+"hits": 168
+},
+{
+"word": "desert",
+"pos": "pre",
+"prompts": 34,
+"hits": 124
+},
+{
+"word": "king",
+"pos": "pre",
+"prompts": 34,
+"hits": 106
+},
+{
+"word": "indian",
+"pos": "pre",
+"prompts": 34,
+"hits": 103
+},
+{
+"word": "fire",
+"pos": "pre",
+"prompts": 34,
+"hits": 102
+},
+{
+"word": "russian",
+"pos": "pre",
+"prompts": 34,
+"hits": 72
+},
+{
+"word": "double",
+"pos": "pre",
+"prompts": 34,
+"hits": 71
+},
+{
+"word": "western",
+"pos": "pre",
+"prompts": 33,
+"hits": 159
+},
+{
+"word": "royal",
+"pos": "pre",
+"prompts": 33,
+"hits": 81
+},
+{
+"word": "stone",
+"pos": "pre",
+"prompts": 33,
+"hits": 66
+},
+{
+"word": "eastern",
+"pos": "pre",
+"prompts": 32,
+"hits": 102
+},
+{
+"word": "high",
+"pos": "pre",
+"prompts": 32,
+"hits": 56
+},
+{
+"word": "mini",
+"pos": "pre",
+"prompts": 32,
+"hits": 56
+},
+{
+"word": "common",
+"pos": "pre",
+"prompts": 31,
+"hits": 261
+},
+{
+"word": "south",
+"pos": "pre",
+"prompts": 31,
+"hits": 127
+},
+{
+"word": "pacific",
+"pos": "pre",
+"prompts": 31,
+"hits": 120
+},
+{
+"word": "wild",
+"pos": "pre",
+"prompts": 31,
+"hits": 75
+},
+{
+"word": "spanish",
+"pos": "pre",
+"prompts": 31,
+"hits": 59
+},
+{
+"word": "spider",
+"pos": "pre",
+"prompts": 31,
+"hits": 56
+},
+{
+"word": "elephant",
+"pos": "pre",
+"prompts": 31,
+"hits": 35
+},
+{
+"word": "new",
+"pos": "pre",
+"prompts": 30,
+"hits": 113
+},
+{
+"word": "ghost",
+"pos": "pre",
+"prompts": 30,
+"hits": 82
+},
+{
+"word": "dragon",
+"pos": "pre",
+"prompts": 30,
+"hits": 72
+},
+{
+"word": "banana",
+"pos": "pre",
+"prompts": 30,
+"hits": 42
+},
+{
+"word": "dog",
+"pos": "pre",
+"prompts": 30,
+"hits": 39
+},
+{
+"word": "spotted",
+"pos": "pre",
+"prompts": 29,
+"hits": 293
+},
+{
+"word": "grand",
+"pos": "pre",
+"prompts": 29,
+"hits": 60
+},
+{
+"word": "sun",
+"pos": "pre",
+"prompts": 29,
+"hits": 46
+},
+{
+"word": "purple",
+"pos": "pre",
+"prompts": 28,
+"hits": 99
+},
+{
+"word": "european",
+"pos": "pre",
+"prompts": 28,
+"hits": 79
+},
+{
+"word": "arctic",
+"pos": "pre",
+"prompts": 28,
+"hits": 61
+},
+{
+"word": "field",
+"pos": "pre",
+"prompts": 28,
+"hits": 49
+},
+{
+"word": "dwarf",
+"pos": "pre",
+"prompts": 27,
+"hits": 146
+},
+{
+"word": "forest",
+"pos": "pre",
+"prompts": 27,
+"hits": 88
+},
+{
+"word": "space",
+"pos": "pre",
+"prompts": 27,
+"hits": 50
+},
+{
+"word": "speed",
+"pos": "pre",
+"prompts": 27,
+"hits": 42
+},
+{
+"word": "rose",
+"pos": "pre",
+"prompts": 27,
+"hits": 42
+},
+{
+"word": "lesser",
+"pos": "pre",
+"prompts": 26,
+"hits": 109
+},
+{
+"word": "tiger",
+"pos": "pre",
+"prompts": 26,
+"hits": 81
+},
+{
+"word": "super",
+"pos": "pre",
+"prompts": 26,
+"hits": 76
+},
+{
+"word": "cape",
+"pos": "pre",
+"prompts": 26,
+"hits": 75
+},
+{
+"word": "tree",
+"pos": "pre",
+"prompts": 26,
+"hits": 74
+},
+{
+"word": "blood",
+"pos": "pre",
+"prompts": 26,
+"hits": 50
+},
+{
+"word": "flying",
+"pos": "pre",
+"prompts": 26,
+"hits": 46
+},
+{
+"word": "air",
+"pos": "pre",
+"prompts": 26,
+"hits": 40
+},
+{
+"word": "coconut",
+"pos": "pre",
+"prompts": 26,
+"hits": 39
+},
+{
+"word": "strawberry",
+"pos": "pre",
+"prompts": 26,
+"hits": 32
+},
+{
+"word": "big",
+"pos": "pre",
+"prompts": 25,
+"hits": 126
+},
+{
+"word": "silver",
+"pos": "pre",
+"prompts": 25,
+"hits": 112
+},
+{
+"word": "ground",
+"pos": "pre",
+"prompts": 25,
+"hits": 56
+},
+{
+"word": "grass",
+"pos": "pre",
+"prompts": 25,
+"hits": 47
+},
+{
+"word": "moon",
+"pos": "pre",
+"prompts": 25,
+"hits": 41
+},
+{
+"word": "summer",
+"pos": "pre",
+"prompts": 25,
+"hits": 40
+},
+{
+"word": "box",
+"pos": "pre",
+"prompts": 25,
+"hits": 33
+},
+{
+"word": "striped",
+"pos": "pre",
+"prompts": 24,
+"hits": 145
+},
+{
+"word": "french",
+"pos": "pre",
+"prompts": 24,
+"hits": 53
+},
+{
+"word": "false",
+"pos": "pre",
+"prompts": 24,
+"hits": 53
+},
+{
+"word": "glass",
+"pos": "pre",
+"prompts": 24,
+"hits": 51
+},
+{
+"word": "paper",
+"pos": "pre",
+"prompts": 24,
+"hits": 47
+},
+{
+"word": "cross",
+"pos": "pre",
+"prompts": 24,
+"hits": 44
+},
+{
+"word": "persian",
+"pos": "pre",
+"prompts": 24,
+"hits": 41
+},
+{
+"word": "sweet",
+"pos": "pre",
+"prompts": 24,
+"hits": 36
+},
+{
+"word": "horse",
+"pos": "pre",
+"prompts": 24,
+"hits": 29
+},
+{
+"word": "gray",
+"pos": "pre",
+"prompts": 23,
+"hits": 85
+},
+{
+"word": "chilean",
+"pos": "pre",
+"prompts": 23,
+"hits": 67
+},
+{
+"word": "greater",
+"pos": "pre",
+"prompts": 23,
+"hits": 62
+},
+{
+"word": "korean",
+"pos": "pre",
+"prompts": 23,
+"hits": 54
+},
+{
+"word": "shadow",
+"pos": "pre",
+"prompts": 23,
+"hits": 48
+},
+{
+"word": "tropical",
+"pos": "pre",
+"prompts": 23,
+"hits": 44
+},
+{
+"word": "electric",
+"pos": "pre",
+"prompts": 23,
+"hits": 38
+},
+{
+"word": "night",
+"pos": "pre",
+"prompts": 23,
+"hits": 38
+},
+{
+"word": "hot",
+"pos": "pre",
+"prompts": 23,
+"hits": 28
+},
+{
+"word": "pygmy",
+"pos": "pre",
+"prompts": 22,
+"hits": 118
+},
+{
+"word": "old",
+"pos": "pre",
+"prompts": 22,
+"hits": 112
+},
+{
+"word": "california",
+"pos": "pre",
+"prompts": 22,
+"hits": 88
+},
+{
+"word": "prairie",
+"pos": "pre",
+"prompts": 22,
+"hits": 46
+},
+{
+"word": "asian",
+"pos": "pre",
+"prompts": 22,
+"hits": 44
+},
+{
+"word": "mud",
+"pos": "pre",
+"prompts": 22,
+"hits": 42
+},
+{
+"word": "fish",
+"pos": "pre",
+"prompts": 22,
+"hits": 42
+},
+{
+"word": "copper",
+"pos": "pre",
+"prompts": 22,
+"hits": 37
+},
+{
+"word": "blind",
+"pos": "pre",
+"prompts": 22,
+"hits": 37
+},
+{
+"word": "bamboo",
+"pos": "pre",
+"prompts": 22,
+"hits": 33
+},
+{
+"word": "walking",
+"pos": "pre",
+"prompts": 22,
+"hits": 28
+},
+{
+"word": "land",
+"pos": "pre",
+"prompts": 22,
+"hits": 27
+},
+{
+"word": "dusky",
+"pos": "pre",
+"prompts": 21,
+"hits": 110
+},
+{
+"word": "brazilian",
+"pos": "pre",
+"prompts": 21,
+"hits": 88
+},
+{
+"word": "river",
+"pos": "pre",
+"prompts": 21,
+"hits": 60
+},
+{
+"word": "orange",
+"pos": "pre",
+"prompts": 21,
+"hits": 60
+},
+{
+"word": "alpine",
+"pos": "pre",
+"prompts": 21,
+"hits": 59
+},
+{
+"word": "rainbow",
+"pos": "pre",
+"prompts": 21,
+"hits": 54
+},
+{
+"word": "gold",
+"pos": "pre",
+"prompts": 21,
+"hits": 53
+},
+{
+"word": "iron",
+"pos": "pre",
+"prompts": 21,
+"hits": 47
+},
+{
+"word": "winter",
+"pos": "pre",
+"prompts": 21,
+"hits": 45
+},
+{
+"word": "marine",
+"pos": "pre",
+"prompts": 21,
+"hits": 38
+},
+{
+"word": "apple",
+"pos": "pre",
+"prompts": 21,
+"hits": 36
+},
+{
+"word": "fruit",
+"pos": "pre",
+"prompts": 21,
+"hits": 35
+},
+{
+"word": "island",
+"pos": "pre",
+"prompts": 21,
+"hits": 35
+},
+{
+"word": "coastal",
+"pos": "pre",
+"prompts": 21,
+"hits": 32
+},
+{
+"word": "street",
+"pos": "pre",
+"prompts": 21,
+"hits": 29
+},
+{
+"word": "hand",
+"pos": "pre",
+"prompts": 21,
+"hits": 28
+},
+{
+"word": "finger",
+"pos": "pre",
+"prompts": 21,
+"hits": 27
+},
+{
+"word": "ocean",
+"pos": "pre",
+"prompts": 21,
+"hits": 27
+},
+{
+"word": "ball",
+"pos": "pre",
+"prompts": 21,
+"hits": 26
+},
+{
+"word": "ring",
+"pos": "pre",
+"prompts": 21,
+"hits": 25
+},
+{
+"word": "horned",
+"pos": "pre",
+"prompts": 20,
+"hits": 61
+},
+{
+"word": "egg",
+"pos": "pre",
+"prompts": 20,
+"hits": 58
+},
+{
+"word": "philippine",
+"pos": "pre",
+"prompts": 20,
+"hits": 54
+},
+{
+"word": "texas",
+"pos": "pre",
+"prompts": 20,
+"hits": 51
+},
+{
+"word": "emperor",
+"pos": "pre",
+"prompts": 20,
+"hits": 43
+},
+{
+"word": "imperial",
+"pos": "pre",
+"prompts": 20,
+"hits": 42
+},
+{
+"word": "mole",
+"pos": "pre",
+"prompts": 20,
+"hits": 37
+},
+{
+"word": "power",
+"pos": "pre",
+"prompts": 20,
+"hits": 35
+},
+{
+"word": "lemon",
+"pos": "pre",
+"prompts": 20,
+"hits": 35
+},
+{
+"word": "ski",
+"pos": "pre",
+"prompts": 20,
+"hits": 34
+},
+{
+"word": "sugar",
+"pos": "pre",
+"prompts": 20,
+"hits": 33
+},
+{
+"word": "true",
+"pos": "pre",
+"prompts": 20,
+"hits": 33
+},
+{
+"word": "angel",
+"pos": "pre",
+"prompts": 20,
+"hits": 30
+},
+{
+"word": "cherry",
+"pos": "pre",
+"prompts": 20,
+"hits": 29
+},
+{
+"word": "military",
+"pos": "pre",
+"prompts": 20,
+"hits": 28
+},
+{
+"word": "mango",
+"pos": "pre",
+"prompts": 20,
+"hits": 24
+},
+{
+"word": "mexican",
+"pos": "pre",
+"prompts": 19,
+"hits": 80
+},
+{
+"word": "para",
+"pos": "pre",
+"prompts": 19,
+"hits": 74
+},
+{
+"word": "crimson",
+"pos": "pre",
+"prompts": 19,
+"hits": 71
+},
+{
+"word": "pale",
+"pos": "pre",
+"prompts": 19,
+"hits": 61
+},
+{
+"word": "swamp",
+"pos": "pre",
+"prompts": 19,
+"hits": 58
+},
+{
+"word": "small",
+"pos": "pre",
+"prompts": 19,
+"hits": 49
+},
+{
+"word": "oriental",
+"pos": "pre",
+"prompts": 19,
+"hits": 41
+},
+{
+"word": "cuban",
+"pos": "pre",
+"prompts": 19,
+"hits": 41
+},
+{
+"word": "long",
+"pos": "pre",
+"prompts": 19,
+"hits": 40
+},
+{
+"word": "bush",
+"pos": "pre",
+"prompts": 19,
+"hits": 36
+},
+{
+"word": "butterfly",
+"pos": "pre",
+"prompts": 19,
+"hits": 35
+},
+{
+"word": "first",
+"pos": "pre",
+"prompts": 19,
+"hits": 33
+},
+{
+"word": "round",
+"pos": "pre",
+"prompts": 19,
+"hits": 33
+},
+{
+"word": "flower",
+"pos": "pre",
+"prompts": 19,
+"hits": 31
+},
+{
+"word": "tibetan",
+"pos": "pre",
+"prompts": 19,
+"hits": 30
+},
+{
+"word": "music",
+"pos": "pre",
+"prompts": 19,
+"hits": 30
+},
+{
+"word": "ribbon",
+"pos": "pre",
+"prompts": 19,
+"hits": 28
+},
+{
+"word": "volcano",
+"pos": "pre",
+"prompts": 19,
+"hits": 28
+},
+{
+"word": "body",
+"pos": "pre",
+"prompts": 19,
+"hits": 27
+},
+{
+"word": "soft",
+"pos": "pre",
+"prompts": 19,
+"hits": 26
+},
+{
+"word": "dry",
+"pos": "pre",
+"prompts": 19,
+"hits": 24
+},
+{
+"word": "club",
+"pos": "pre",
+"prompts": 19,
+"hits": 24
+},
+{
+"word": "crab",
+"pos": "pre",
+"prompts": 19,
+"hits": 23
+},
+{
+"word": "cornish",
+"pos": "pre",
+"prompts": 19,
+"hits": 19
+},
+{
+"word": "banded",
+"pos": "pre",
+"prompts": 18,
+"hits": 111
+},
+{
+"word": "spiny",
+"pos": "pre",
+"prompts": 18,
+"hits": 84
+},
+{
+"word": "hooded",
+"pos": "pre",
+"prompts": 18,
+"hits": 66
+},
+{
+"word": "olive",
+"pos": "pre",
+"prompts": 18,
+"hits": 61
+},
+{
+"word": "delta",
+"pos": "pre",
+"prompts": 18,
+"hits": 51
+},
+{
+"word": "velvet",
+"pos": "pre",
+"prompts": 18,
+"hits": 46
+},
+{
+"word": "siberian",
+"pos": "pre",
+"prompts": 18,
+"hits": 46
+},
+{
+"word": "bearded",
+"pos": "pre",
+"prompts": 18,
+"hits": 40
+},
+{
+"word": "wolf",
+"pos": "pre",
+"prompts": 18,
+"hits": 35
+},
+{
+"word": "egyptian",
+"pos": "pre",
+"prompts": 18,
+"hits": 34
+},
+{
+"word": "spring",
+"pos": "pre",
+"prompts": 18,
+"hits": 33
+},
+{
+"word": "diamond",
+"pos": "pre",
+"prompts": 18,
+"hits": 33
+},
+{
+"word": "central",
+"pos": "pre",
+"prompts": 18,
+"hits": 31
+},
+{
+"word": "cosmic",
+"pos": "pre",
+"prompts": 18,
+"hits": 31
+},
+{
+"word": "war",
+"pos": "pre",
+"prompts": 18,
+"hits": 30
+},
+{
+"word": "jungle",
+"pos": "pre",
+"prompts": 18,
+"hits": 29
+},
+{
+"word": "leaf",
+"pos": "pre",
+"prompts": 18,
+"hits": 28
+},
+{
+"word": "snake",
+"pos": "pre",
+"prompts": 18,
+"hits": 28
+},
+{
+"word": "crown",
+"pos": "pre",
+"prompts": 18,
+"hits": 27
+},
+{
+"word": "oil",
+"pos": "pre",
+"prompts": 18,
+"hits": 27
+},
+{
+"word": "princess",
+"pos": "pre",
+"prompts": 18,
+"hits": 26
+},
+{
+"word": "money",
+"pos": "pre",
+"prompts": 18,
+"hits": 23
+},
+{
+"word": "brush",
+"pos": "pre",
+"prompts": 18,
+"hits": 22
+},
+{
+"word": "spiral",
+"pos": "pre",
+"prompts": 18,
+"hits": 22
+},
+{
+"word": "grey",
+"pos": "pre",
+"prompts": 17,
+"hits": 91
+},
+{
+"word": "australian",
+"pos": "pre",
+"prompts": 17,
+"hits": 85
+},
+{
+"word": "atlantic",
+"pos": "pre",
+"prompts": 17,
+"hits": 66
+},
+{
+"word": "masked",
+"pos": "pre",
+"prompts": 17,
+"hits": 61
+},
+{
+"word": "marsh",
+"pos": "pre",
+"prompts": 17,
+"hits": 57
+},
+{
+"word": "italian",
+"pos": "pre",
+"prompts": 17,
+"hits": 52
+},
+{
+"word": "bone",
+"pos": "pre",
+"prompts": 17,
+"hits": 47
+},
+{
+"word": "canadian",
+"pos": "pre",
+"prompts": 17,
+"hits": 46
+},
+{
+"word": "irish",
+"pos": "pre",
+"prompts": 17,
+"hits": 45
+},
+{
+"word": "death",
+"pos": "pre",
+"prompts": 17,
+"hits": 41
+},
+{
+"word": "queen",
+"pos": "pre",
+"prompts": 17,
+"hits": 39
+},
+{
+"word": "urban",
+"pos": "pre",
+"prompts": 17,
+"hits": 39
+},
+{
+"word": "greek",
+"pos": "pre",
+"prompts": 17,
+"hits": 35
+},
+{
+"word": "flat",
+"pos": "pre",
+"prompts": 17,
+"hits": 35
+},
+{
+"word": "hawaiian",
+"pos": "pre",
+"prompts": 17,
+"hits": 30
+},
+{
+"word": "lady",
+"pos": "pre",
+"prompts": 17,
+"hits": 30
+},
+{
+"word": "surf",
+"pos": "pre",
+"prompts": 17,
+"hits": 29
+},
+{
+"word": "jet",
+"pos": "pre",
+"prompts": 17,
+"hits": 28
+},
+{
+"word": "equatorial",
+"pos": "pre",
+"prompts": 17,
+"hits": 26
+},
+{
+"word": "thermal",
+"pos": "pre",
+"prompts": 17,
+"hits": 26
+},
+{
+"word": "wall",
+"pos": "pre",
+"prompts": 17,
+"hits": 25
+},
+{
+"word": "bay",
+"pos": "pre",
+"prompts": 17,
+"hits": 24
+},
+{
+"word": "christmas",
+"pos": "pre",
+"prompts": 17,
+"hits": 23
+},
+{
+"word": "turtle",
+"pos": "pre",
+"prompts": 17,
+"hits": 23
+},
+{
+"word": "rice",
+"pos": "pre",
+"prompts": 17,
+"hits": 22
+},
+{
+"word": "pocket",
+"pos": "pre",
+"prompts": 17,
+"hits": 22
+},
+{
+"word": "fat",
+"pos": "pre",
+"prompts": 17,
+"hits": 22
+},
+{
+"word": "vampire",
+"pos": "pre",
+"prompts": 17,
+"hits": 21
+},
+{
+"word": "bubble",
+"pos": "pre",
+"prompts": 17,
+"hits": 20
+},
+{
+"word": "horseshoe",
+"pos": "pre",
+"prompts": 17,
+"hits": 19
+},
+{
+"word": "real",
+"pos": "pre",
+"prompts": 17,
+"hits": 18
+},
+{
+"word": "pilot",
+"pos": "pre",
+"prompts": 17,
+"hits": 17
+},
+{
+"word": "crested",
+"pos": "pre",
+"prompts": 16,
+"hits": 91
+},
+{
+"word": "scarlet",
+"pos": "pre",
+"prompts": 16,
+"hits": 71
+},
+{
+"word": "smooth",
+"pos": "pre",
+"prompts": 16,
+"hits": 62
+},
+{
+"word": "emerald",
+"pos": "pre",
+"prompts": 16,
+"hits": 59
+},
+{
+"word": "painted",
+"pos": "pre",
+"prompts": 16,
+"hits": 56
+},
+{
+"word": "arabian",
+"pos": "pre",
+"prompts": 16,
+"hits": 51
+},
+{
+"word": "crowned",
+"pos": "pre",
+"prompts": 16,
+"hits": 39
+},
+{
+"word": "metal",
+"pos": "pre",
+"prompts": 16,
+"hits": 38
+},
+{
+"word": "prickly",
+"pos": "pre",
+"prompts": 16,
+"hits": 36
+},
+{
+"word": "phantom",
+"pos": "pre",
+"prompts": 16,
+"hits": 34
+},
+{
+"word": "highland",
+"pos": "pre",
+"prompts": 16,
+"hits": 33
+},
+{
+"word": "light",
+"pos": "pre",
+"prompts": 16,
+"hits": 32
+},
+{
+"word": "fairy",
+"pos": "pre",
+"prompts": 16,
+"hits": 30
+},
+{
+"word": "english",
+"pos": "pre",
+"prompts": 16,
+"hits": 29
+},
+{
+"word": "love",
+"pos": "pre",
+"prompts": 16,
+"hits": 29
+},
+{
+"word": "mongolian",
+"pos": "pre",
+"prompts": 16,
+"hits": 29
+},
+{
+"word": "social",
+"pos": "pre",
+"prompts": 16,
+"hits": 29
+},
+{
+"word": "crystal",
+"pos": "pre",
+"prompts": 16,
+"hits": 29
+},
+{
+"word": "zombie",
+"pos": "pre",
+"prompts": 16,
+"hits": 28
+},
+{
+"word": "cold",
+"pos": "pre",
+"prompts": 16,
+"hits": 28
+},
+{
+"word": "palm",
+"pos": "pre",
+"prompts": 16,
+"hits": 26
+},
+{
+"word": "time",
+"pos": "pre",
+"prompts": 16,
+"hits": 26
+},
+{
+"word": "welsh",
+"pos": "pre",
+"prompts": 16,
+"hits": 24
+},
+{
+"word": "garden",
+"pos": "pre",
+"prompts": 16,
+"hits": 23
+},
+{
+"word": "second",
+"pos": "pre",
+"prompts": 16,
+"hits": 23
+},
+{
+"word": "road",
+"pos": "pre",
+"prompts": 16,
+"hits": 22
+},
+{
+"word": "chain",
+"pos": "pre",
+"prompts": 16,
+"hits": 22
+},
+{
+"word": "food",
+"pos": "pre",
+"prompts": 16,
+"hits": 22
+},
+{
+"word": "grape",
+"pos": "pre",
+"prompts": 16,
+"hits": 22
+},
+{
+"word": "canada",
+"pos": "pre",
+"prompts": 16,
+"hits": 20
+},
+{
+"word": "right",
+"pos": "pre",
+"prompts": 16,
+"hits": 20
+},
+{
+"word": "candy",
+"pos": "pre",
+"prompts": 16,
+"hits": 20
+},
+{
+"word": "roman",
+"pos": "pre",
+"prompts": 16,
+"hits": 19
+},
+{
+"word": "pigeon",
+"pos": "pre",
+"prompts": 16,
+"hits": 18
+},
+{
+"word": "chicken",
+"pos": "pre",
+"prompts": 16,
+"hits": 18
+},
+{
+"word": "car",
+"pos": "pre",
+"prompts": 16,
+"hits": 18
+},
+{
+"word": "bicycle",
+"pos": "pre",
+"prompts": 16,
+"hits": 16
+},
+{
+"word": "hairy",
+"pos": "pre",
+"prompts": 15,
+"hits": 54
+},
+{
+"word": "leopard",
+"pos": "pre",
+"prompts": 15,
+"hits": 49
+},
+{
+"word": "wheelchair",
+"pos": "pre",
+"prompts": 15,
+"hits": 44
+},
+{
+"word": "chestnut",
+"pos": "pre",
+"prompts": 15,
+"hits": 44
+},
+{
+"word": "digital",
+"pos": "pre",
+"prompts": 15,
+"hits": 42
+},
+{
+"word": "city",
+"pos": "post",
+"prompts": 15,
+"hits": 40
+},
+{
+"word": "ancient",
+"pos": "pre",
+"prompts": 15,
+"hits": 36
+},
+{
+"word": "peacock",
+"pos": "pre",
+"prompts": 15,
+"hits": 30
+},
+{
+"word": "bass",
+"pos": "pre",
+"prompts": 15,
+"hits": 29
+},
+{
+"word": "large",
+"pos": "pre",
+"prompts": 15,
+"hits": 29
+},
+{
+"word": "burmese",
+"pos": "pre",
+"prompts": 15,
+"hits": 28
+},
+{
+"word": "bad",
+"pos": "pre",
+"prompts": 15,
+"hits": 28
+},
+{
+"word": "reverse",
+"pos": "pre",
+"prompts": 15,
+"hits": 27
+},
+{
+"word": "steam",
+"pos": "pre",
+"prompts": 15,
+"hits": 26
+},
+{
+"word": "low",
+"pos": "pre",
+"prompts": 15,
+"hits": 25
+},
+{
+"word": "tower",
+"pos": "pre",
+"prompts": 15,
+"hits": 24
+},
+{
+"word": "combat",
+"pos": "pre",
+"prompts": 15,
+"hits": 23
+},
+{
+"word": "oyster",
+"pos": "pre",
+"prompts": 15,
+"hits": 23
+},
+{
+"word": "family",
+"pos": "pre",
+"prompts": 15,
+"hits": 23
+},
+{
+"word": "ruby",
+"pos": "pre",
+"prompts": 15,
+"hits": 22
+},
+{
+"word": "hard",
+"pos": "pre",
+"prompts": 15,
+"hits": 22
+},
+{
+"word": "half",
+"pos": "pre",
+"prompts": 15,
+"hits": 21
+},
+{
+"word": "deer",
+"pos": "pre",
+"prompts": 15,
+"hits": 20
+},
+{
+"word": "butter",
+"pos": "pre",
+"prompts": 15,
+"hits": 19
+},
+{
+"word": "monkey",
+"pos": "pre",
+"prompts": 15,
+"hits": 19
+},
+{
+"word": "perfect",
+"pos": "pre",
+"prompts": 15,
+"hits": 19
+},
+{
+"word": "bullet",
+"pos": "pre",
+"prompts": 15,
+"hits": 19
+},
+{
+"word": "pumpkin",
+"pos": "pre",
+"prompts": 15,
+"hits": 19
+},
+{
+"word": "roller",
+"pos": "pre",
+"prompts": 15,
+"hits": 18
+},
+{
+"word": "mechanical",
+"pos": "pre",
+"prompts": 15,
+"hits": 18
+},
+{
+"word": "eagle",
+"pos": "pre",
+"prompts": 15,
+"hits": 17
+},
+{
+"word": "tomato",
+"pos": "pre",
+"prompts": 15,
+"hits": 17
+},
+{
+"word": "head",
+"pos": "pre",
+"prompts": 15,
+"hits": 17
+},
+{
+"word": "plastic",
+"pos": "pre",
+"prompts": 15,
+"hits": 16
+},
+{
+"word": "andean",
+"pos": "pre",
+"prompts": 14,
+"hits": 65
+},
+{
+"word": "collared",
+"pos": "pre",
+"prompts": 14,
+"hits": 55
+},
+{
+"word": "elegant",
+"pos": "pre",
+"prompts": 14,
+"hits": 46
+},
+{
+"word": "zebra",
+"pos": "pre",
+"prompts": 14,
+"hits": 45
+},
+{
+"word": "florida",
+"pos": "pre",
+"prompts": 14,
+"hits": 45
+},
+{
+"word": "star",
+"pos": "post",
+"prompts": 14,
+"hits": 44
+},
+{
+"word": "deep",
+"pos": "pre",
+"prompts": 14,
+"hits": 43
+},
+{
+"word": "middle",
+"pos": "pre",
+"prompts": 14,
+"hits": 41
+},
+{
+"word": "reef",
+"pos": "pre",
+"prompts": 14,
+"hits": 40
+},
+{
+"word": "ringed",
+"pos": "pre",
+"prompts": 14,
+"hits": 39
+},
+{
+"word": "coral",
+"pos": "pre",
+"prompts": 14,
+"hits": 38
+},
+{
+"word": "flame",
+"pos": "pre",
+"prompts": 14,
+"hits": 38
+},
+{
+"word": "club",
+"pos": "post",
+"prompts": 14,
+"hits": 37
+},
+{
+"word": "dutch",
+"pos": "pre",
+"prompts": 14,
+"hits": 33
+},
+{
+"word": "pine",
+"pos": "pre",
+"prompts": 14,
+"hits": 31
+},
+{
+"word": "house",
+"pos": "pre",
+"prompts": 14,
+"hits": 30
+},
+{
+"word": "somali",
+"pos": "pre",
+"prompts": 14,
+"hits": 28
+},
+{
+"word": "tea",
+"pos": "pre",
+"prompts": 14,
+"hits": 28
+},
+{
+"word": "swiss",
+"pos": "pre",
+"prompts": 14,
+"hits": 27
+},
+{
+"word": "chocolate",
+"pos": "pre",
+"prompts": 14,
+"hits": 27
+},
+{
+"word": "underwater",
+"pos": "pre",
+"prompts": 14,
+"hits": 25
+},
+{
+"word": "armored",
+"pos": "pre",
+"prompts": 14,
+"hits": 25
+},
+{
+"word": "swift",
+"pos": "pre",
+"prompts": 14,
+"hits": 25
+},
+{
+"word": "ball",
+"pos": "post",
+"prompts": 14,
+"hits": 25
+},
+{
+"word": "prince",
+"pos": "pre",
+"prompts": 14,
+"hits": 24
+},
+{
+"word": "alaska",
+"pos": "pre",
+"prompts": 14,
+"hits": 23
+},
+{
+"word": "plus",
+"pos": "post",
+"prompts": 14,
+"hits": 23
+},
+{
+"word": "noble",
+"pos": "pre",
+"prompts": 14,
+"hits": 23
+},
+{
+"word": "pond",
+"pos": "pre",
+"prompts": 14,
+"hits": 21
+},
+{
+"word": "battle",
+"pos": "pre",
+"prompts": 14,
+"hits": 21
+},
+{
+"word": "crescent",
+"pos": "pre",
+"prompts": 14,
+"hits": 21
+},
+{
+"word": "pineapple",
+"pos": "pre",
+"prompts": 14,
+"hits": 20
+},
+{
+"word": "party",
+"pos": "pre",
+"prompts": 14,
+"hits": 20
+},
+{
+"word": "midnight",
+"pos": "pre",
+"prompts": 14,
+"hits": 20
+},
+{
+"word": "city",
+"pos": "pre",
+"prompts": 14,
+"hits": 19
+},
+{
+"word": "cat",
+"pos": "pre",
+"prompts": 14,
+"hits": 19
+},
+{
+"word": "mushroom",
+"pos": "pre",
+"prompts": 14,
+"hits": 19
+},
+{
+"word": "killer",
+"pos": "pre",
+"prompts": 14,
+"hits": 18
+},
+{
+"word": "reed",
+"pos": "pre",
+"prompts": 14,
+"hits": 17
+},
+{
+"word": "whale",
+"pos": "pre",
+"prompts": 14,
+"hits": 17
+},
+{
+"word": "hedgehog",
+"pos": "pre",
+"prompts": 14,
+"hits": 17
+},
+{
+"word": "short",
+"pos": "pre",
+"prompts": 14,
+"hits": 16
+},
+{
+"word": "box",
+"pos": "post",
+"prompts": 14,
+"hits": 16
+},
+{
+"word": "lucky",
+"pos": "pre",
+"prompts": 14,
+"hits": 16
+},
+{
+"word": "basket",
+"pos": "pre",
+"prompts": 14,
+"hits": 15
+},
+{
+"word": "smart",
+"pos": "pre",
+"prompts": 14,
+"hits": 15
+},
+{
+"word": "day",
+"pos": "post",
+"prompts": 14,
+"hits": 15
+},
+{
+"word": "cone",
+"pos": "pre",
+"prompts": 14,
+"hits": 14
+},
+{
+"word": "west",
+"pos": "pre",
+"prompts": 13,
+"hits": 120
+},
+{
+"word": "north",
+"pos": "pre",
+"prompts": 13,
+"hits": 101
+},
+{
+"word": "peruvian",
+"pos": "pre",
+"prompts": 13,
+"hits": 60
+},
+{
+"word": "marbled",
+"pos": "pre",
+"prompts": 13,
+"hits": 53
+},
+{
+"word": "man",
+"pos": "post",
+"prompts": 13,
+"hits": 47
+},
+{
+"word": "mega",
+"pos": "pre",
+"prompts": 13,
+"hits": 46
+},
+{
+"word": "medical",
+"pos": "pre",
+"prompts": 13,
+"hits": 44
+},
+{
+"word": "beautiful",
+"pos": "pre",
+"prompts": 13,
+"hits": 41
+},
+{
+"word": "arizona",
+"pos": "pre",
+"prompts": 13,
+"hits": 39
+},
+{
+"word": "himalayan",
+"pos": "pre",
+"prompts": 13,
+"hits": 38
+},
+{
+"word": "steel",
+"pos": "pre",
+"prompts": 13,
+"hits": 38
+},
+{
+"word": "galapagos",
+"pos": "pre",
+"prompts": 13,
+"hits": 37
+},
+{
+"word": "shining",
+"pos": "pre",
+"prompts": 13,
+"hits": 34
+},
+{
+"word": "javan",
+"pos": "pre",
+"prompts": 13,
+"hits": 33
+},
+{
+"word": "taiwan",
+"pos": "pre",
+"prompts": 13,
+"hits": 33
+},
+{
+"word": "humpback",
+"pos": "pre",
+"prompts": 13,
+"hits": 30
+},
+{
+"word": "sports",
+"pos": "pre",
+"prompts": 13,
+"hits": 30
+},
+{
+"word": "silky",
+"pos": "pre",
+"prompts": 13,
+"hits": 30
+},
+{
+"word": "burrowing",
+"pos": "pre",
+"prompts": 13,
+"hits": 29
+},
+{
+"word": "bronze",
+"pos": "pre",
+"prompts": 13,
+"hits": 28
+},
+{
+"word": "reticulated",
+"pos": "pre",
+"prompts": 13,
+"hits": 27
+},
+{
+"word": "milk",
+"pos": "pre",
+"prompts": 13,
+"hits": 26
+},
+{
+"word": "flight",
+"pos": "pre",
+"prompts": 13,
+"hits": 26
+},
+{
+"word": "sacred",
+"pos": "pre",
+"prompts": 13,
+"hits": 26
+},
+{
+"word": "indoor",
+"pos": "pre",
+"prompts": 13,
+"hits": 25
+},
+{
+"word": "devil",
+"pos": "pre",
+"prompts": 13,
+"hits": 25
+},
+{
+"word": "amazon",
+"pos": "pre",
+"prompts": 13,
+"hits": 24
+},
+{
+"word": "pearl",
+"pos": "pre",
+"prompts": 13,
+"hits": 24
+},
+{
+"word": "earth",
+"pos": "pre",
+"prompts": 13,
+"hits": 24
+},
+{
+"word": "virginia",
+"pos": "pre",
+"prompts": 13,
+"hits": 23
+},
+{
+"word": "razor",
+"pos": "pre",
+"prompts": 13,
+"hits": 23
+},
+{
+"word": "thai",
+"pos": "pre",
+"prompts": 13,
+"hits": 22
+},
+{
+"word": "bull",
+"pos": "pre",
+"prompts": 13,
+"hits": 21
+},
+{
+"word": "good",
+"pos": "pre",
+"prompts": 13,
+"hits": 20
+},
+{
+"word": "skin",
+"pos": "pre",
+"prompts": 13,
+"hits": 20
+},
+{
+"word": "solar",
+"pos": "pre",
+"prompts": 13,
+"hits": 20
+},
+{
+"word": "cactus",
+"pos": "pre",
+"prompts": 13,
+"hits": 19
+},
+{
+"word": "fishing",
+"pos": "pre",
+"prompts": 13,
+"hits": 19
+},
+{
+"word": "hair",
+"pos": "pre",
+"prompts": 13,
+"hits": 19
+},
+{
+"word": "inner",
+"pos": "pre",
+"prompts": 13,
+"hits": 19
+},
+{
+"word": "ethiopian",
+"pos": "pre",
+"prompts": 13,
+"hits": 18
+},
+{
+"word": "school",
+"pos": "pre",
+"prompts": 13,
+"hits": 18
+},
+{
+"word": "aurora",
+"pos": "pre",
+"prompts": 13,
+"hits": 18
+},
+{
+"word": "team",
+"pos": "pre",
+"prompts": 13,
+"hits": 18
+},
+{
+"word": "rocket",
+"pos": "pre",
+"prompts": 13,
+"hits": 18
+},
+{
+"word": "bell",
+"pos": "pre",
+"prompts": 13,
+"hits": 17
+},
+{
+"word": "fox",
+"pos": "pre",
+"prompts": 13,
+"hits": 17
+},
+{
+"word": "auto",
+"pos": "pre",
+"prompts": 13,
+"hits": 17
+},
+{
+"word": "monster",
+"pos": "pre",
+"prompts": 13,
+"hits": 17
+},
+{
+"word": "vietnamese",
+"pos": "pre",
+"prompts": 13,
+"hits": 17
+},
+{
+"word": "diving",
+"pos": "pre",
+"prompts": 13,
+"hits": 17
+},
+{
+"word": "jack",
+"pos": "pre",
+"prompts": 13,
+"hits": 17
+},
+{
+"word": "umbrella",
+"pos": "pre",
+"prompts": 13,
+"hits": 17
+},
+{
+"word": "sunset",
+"pos": "pre",
+"prompts": 13,
+"hits": 17
+},
+{
+"word": "humboldt",
+"pos": "pre",
+"prompts": 13,
+"hits": 16
+},
+{
+"word": "afghan",
+"pos": "pre",
+"prompts": 13,
+"hits": 16
+},
+{
+"word": "general",
+"pos": "pre",
+"prompts": 13,
+"hits": 16
+},
+{
+"word": "neon",
+"pos": "pre",
+"prompts": 13,
+"hits": 16
+},
+{
+"word": "barrel",
+"pos": "pre",
+"prompts": 13,
+"hits": 16
+},
+{
+"word": "lobster",
+"pos": "pre",
+"prompts": 13,
+"hits": 15
+},
+{
+"word": "fur",
+"pos": "pre",
+"prompts": 13,
+"hits": 15
+},
+{
+"word": "ear",
+"pos": "pre",
+"prompts": 13,
+"hits": 15
+},
+{
+"word": "neck",
+"pos": "pre",
+"prompts": 13,
+"hits": 15
+},
+{
+"word": "full",
+"pos": "pre",
+"prompts": 13,
+"hits": 15
+},
+{
+"word": "pencil",
+"pos": "pre",
+"prompts": 13,
+"hits": 15
+},
+{
+"word": "corn",
+"pos": "pre",
+"prompts": 13,
+"hits": 15
+},
+{
+"word": "stick",
+"pos": "pre",
+"prompts": 13,
+"hits": 15
+},
+{
+"word": "platform",
+"pos": "pre",
+"prompts": 13,
+"hits": 14
+},
+{
+"word": "pin",
+"pos": "pre",
+"prompts": 13,
+"hits": 14
+},
+{
+"word": "mantis",
+"pos": "pre",
+"prompts": 13,
+"hits": 13
+},
+{
+"word": "peanut",
+"pos": "pre",
+"prompts": 13,
+"hits": 13
+},
+{
+"word": "syrian",
+"pos": "pre",
+"prompts": 13,
+"hits": 13
+},
+{
+"word": "duck",
+"pos": "pre",
+"prompts": 13,
+"hits": 13
+},
+{
+"word": "shrimp",
+"pos": "pre",
+"prompts": 13,
+"hits": 13
+},
+{
+"word": "paddle",
+"pos": "pre",
+"prompts": 13,
+"hits": 13
+},
+{
+"word": "radio",
+"pos": "pre",
+"prompts": 12,
+"hits": 69
+},
+{
+"word": "variable",
+"pos": "pre",
+"prompts": 12,
+"hits": 58
+},
+{
+"word": "freestyle",
+"pos": "pre",
+"prompts": 12,
+"hits": 43
+},
+{
+"word": "rosy",
+"pos": "pre",
+"prompts": 12,
+"hits": 41
+},
+{
+"word": "eurasian",
+"pos": "pre",
+"prompts": 12,
+"hits": 38
+},
+{
+"word": "iii",
+"pos": "post",
+"prompts": 12,
+"hits": 38
+},
+{
+"word": "azure",
+"pos": "pre",
+"prompts": 12,
+"hits": 38
+},
+{
+"word": "rusty",
+"pos": "pre",
+"prompts": 12,
+"hits": 36
+},
+{
+"word": "express",
+"pos": "post",
+"prompts": 12,
+"hits": 35
+},
+{
+"word": "christian",
+"pos": "pre",
+"prompts": 12,
+"hits": 35
+},
+{
+"word": "rough",
+"pos": "pre",
+"prompts": 12,
+"hits": 33
+},
+{
+"word": "violet",
+"pos": "pre",
+"prompts": 12,
+"hits": 32
+},
+{
+"word": "lake",
+"pos": "pre",
+"prompts": 12,
+"hits": 32
+},
+{
+"word": "industrial",
+"pos": "pre",
+"prompts": 12,
+"hits": 32
+},
+{
+"word": "harlequin",
+"pos": "pre",
+"prompts": 12,
+"hits": 30
+},
+{
+"word": "modern",
+"pos": "pre",
+"prompts": 12,
+"hits": 29
+},
+{
+"word": "girl",
+"pos": "post",
+"prompts": 12,
+"hits": 29
+},
+{
+"word": "pop",
+"pos": "pre",
+"prompts": 12,
+"hits": 28
+},
+{
+"word": "portuguese",
+"pos": "pre",
+"prompts": 12,
+"hits": 28
+},
+{
+"word": "carolina",
+"pos": "pre",
+"prompts": 12,
+"hits": 28
+},
+{
+"word": "mouse",
+"pos": "pre",
+"prompts": 12,
+"hits": 26
+},
+{
+"word": "tiny",
+"pos": "pre",
+"prompts": 12,
+"hits": 26
+},
+{
+"word": "burning",
+"pos": "pre",
+"prompts": 12,
+"hits": 26
+},
+{
+"word": "cardinal",
+"pos": "pre",
+"prompts": 12,
+"hits": 25
+},
+{
+"word": "quantum",
+"pos": "pre",
+"prompts": 12,
+"hits": 25
+},
+{
+"word": "scrub",
+"pos": "pre",
+"prompts": 12,
+"hits": 25
+},
+{
+"word": "one",
+"pos": "post",
+"prompts": 12,
+"hits": 25
+},
+{
+"word": "phoenix",
+"pos": "pre",
+"prompts": 12,
+"hits": 25
+},
+{
+"word": "king",
+"pos": "post",
+"prompts": 12,
+"hits": 24
+},
+{
+"word": "hero",
+"pos": "pre",
+"prompts": 12,
+"hits": 23
+},
+{
+"word": "caspian",
+"pos": "pre",
+"prompts": 12,
+"hits": 23
+},
+{
+"word": "hidden",
+"pos": "pre",
+"prompts": 12,
+"hits": 23
+},
+{
+"word": "kelp",
+"pos": "pre",
+"prompts": 12,
+"hits": 22
+},
+{
+"word": "lava",
+"pos": "pre",
+"prompts": 12,
+"hits": 22
+},
+{
+"word": "norfolk",
+"pos": "pre",
+"prompts": 12,
+"hits": 22
+},
+{
+"word": "triple",
+"pos": "pre",
+"prompts": 12,
+"hits": 21
+},
+{
+"word": "feather",
+"pos": "pre",
+"prompts": 12,
+"hits": 20
+},
+{
+"word": "sun",
+"pos": "post",
+"prompts": 12,
+"hits": 20
+},
+{
+"word": "table",
+"pos": "pre",
+"prompts": 12,
+"hits": 19
+},
+{
+"word": "coffee",
+"pos": "pre",
+"prompts": 12,
+"hits": 19
+},
+{
+"word": "jewel",
+"pos": "pre",
+"prompts": 12,
+"hits": 19
+},
+{
+"word": "scorpion",
+"pos": "pre",
+"prompts": 12,
+"hits": 19
+},
+{
+"word": "bright",
+"pos": "pre",
+"prompts": 12,
+"hits": 19
+},
+{
+"word": "beaked",
+"pos": "pre",
+"prompts": 12,
+"hits": 18
+},
+{
+"word": "leather",
+"pos": "pre",
+"prompts": 12,
+"hits": 18
+},
+{
+"word": "gas",
+"pos": "pre",
+"prompts": 12,
+"hits": 18
+},
+{
+"word": "goliath",
+"pos": "pre",
+"prompts": 12,
+"hits": 17
+},
+{
+"word": "boom",
+"pos": "pre",
+"prompts": 12,
+"hits": 17
+},
+{
+"word": "bog",
+"pos": "pre",
+"prompts": 12,
+"hits": 17
+},
+{
+"word": "indiana",
+"pos": "pre",
+"prompts": 12,
+"hits": 17
+},
+{
+"word": "turbo",
+"pos": "pre",
+"prompts": 12,
+"hits": 17
+},
+{
+"word": "flash",
+"pos": "pre",
+"prompts": 12,
+"hits": 17
+},
+{
+"word": "brain",
+"pos": "pre",
+"prompts": 12,
+"hits": 17
+},
+{
+"word": "rhinoceros",
+"pos": "pre",
+"prompts": 12,
+"hits": 16
+},
+{
+"word": "visual",
+"pos": "pre",
+"prompts": 12,
+"hits": 16
+},
+{
+"word": "video",
+"pos": "pre",
+"prompts": 12,
+"hits": 16
+},
+{
+"word": "button",
+"pos": "pre",
+"prompts": 12,
+"hits": 16
+},
+{
+"word": "buffalo",
+"pos": "pre",
+"prompts": 12,
+"hits": 16
+},
+{
+"word": "skeleton",
+"pos": "pre",
+"prompts": 12,
+"hits": 16
+},
+{
+"word": "cable",
+"pos": "pre",
+"prompts": 12,
+"hits": 16
+},
+{
+"word": "fighting",
+"pos": "pre",
+"prompts": 12,
+"hits": 16
+},
+{
+"word": "mirror",
+"pos": "pre",
+"prompts": 12,
+"hits": 16
+},
+{
+"word": "bat",
+"pos": "pre",
+"prompts": 12,
+"hits": 16
+},
+{
+"word": "galaxy",
+"pos": "pre",
+"prompts": 12,
+"hits": 16
+},
+{
+"word": "cat",
+"pos": "post",
+"prompts": 12,
+"hits": 15
+},
+{
+"word": "side",
+"pos": "pre",
+"prompts": 12,
+"hits": 15
+},
+{
+"word": "head",
+"pos": "post",
+"prompts": 12,
+"hits": 15
+},
+{
+"word": "golf",
+"pos": "pre",
+"prompts": 12,
+"hits": 15
+},
+{
+"word": "leg",
+"pos": "pre",
+"prompts": 12,
+"hits": 15
+},
+{
+"word": "cash",
+"pos": "pre",
+"prompts": 12,
+"hits": 15
+},
+{
+"word": "peach",
+"pos": "pre",
+"prompts": 12,
+"hits": 15
+},
+{
+"word": "viking",
+"pos": "pre",
+"prompts": 12,
+"hits": 15
+},
+{
+"word": "mandarin",
+"pos": "pre",
+"prompts": 12,
+"hits": 14
+},
+{
+"word": "potato",
+"pos": "pre",
+"prompts": 12,
+"hits": 14
+},
+{
+"word": "bird",
+"pos": "pre",
+"prompts": 12,
+"hits": 14
+},
+{
+"word": "taiwanese",
+"pos": "pre",
+"prompts": 12,
+"hits": 14
+}
+]

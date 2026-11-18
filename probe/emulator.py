@@ -32,6 +32,11 @@ class Dictionary:
                 self.strings.append(norm(s)); self.owner.append(a["answer"])
         # token-level index, handy for multi-word hypotheses
         self.tokens = sorted({t for s in self.strings for t in s.split()})
+        # (tokens, owner) grouped by word count: match_multi only compares same-length strings
+        self.by_nwords = {}
+        for s, o in zip(self.strings, self.owner):
+            t = s.split()
+            self.by_nwords.setdefault(len(t), []).append((t, o))
 
     def nearest(self, q, limit=10):
         """[(string, distance, answer)] sorted by distance."""
@@ -74,10 +79,7 @@ def match_multi(q, D):
     # which suggests a semantic fallback on the server.
     qt = q.split()
     best = {}
-    for s, owner in zip(D.strings, D.owner):
-        ct = s.split()
-        if len(ct) != len(qt):
-            continue
+    for ct, owner in D.by_nwords.get(len(qt), ()):
         total = 0
         for a, b in zip(qt, ct):
             d = Levenshtein.distance(a, b, score_cutoff=allowed(len(a)))

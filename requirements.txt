@@ -1,2 +1,5 @@
 rapidfuzz>=3.14
 jellyfish>=1.0
+pandas>=3.1
+pyarrow>=26.0
+mlx-lm>=0.32.2

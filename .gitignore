@@ -8,3 +8,6 @@ runs/
 *.safetensors
 *.gguf
 wandb/
+
+# derived tables (rebuild with data/build.py)
+data/*.parquet
