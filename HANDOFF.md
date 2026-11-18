@@ -61,25 +61,36 @@ Only 7 prompts have full answer lists. Options:
 
 ## Machines
 
-| Machine | Use it for | Notes |
-|---|---|---|
-| Windows laptop: Ryzen AI 7 350, Radeon 860M, 30 GB | Data prep, emulator, eval, browser captures | No CUDA; PyTorch training is CPU only |
-| Dell Precision 5550: NVIDIA Quadro (T2000/T1000, 4 GB?), check with `nvidia-smi` | **Training with CUDA**: TRL, PEFT, bitsandbytes QLoRA | 4 GB VRAM: LoRA up to ~500M, QLoRA ~1B. Turing has fp16 but no bf16. If it's actually a Pascal P2000, use a PyTorch build that still supports sm_61 (recent CUDA 12.8+ wheels dropped Pascal) |
-| MacBook Air M5, 16 GB | Training with MLX (`mlx-lm` LoRA) or PyTorch MPS | Fanless, so it slows down on long runs; prefer short RFT rounds |
+**The project continues on the MacBook Air M5 (16 GB): it is the primary machine for everything from here on**,
+including data prep, emulator, eval and training.
 
-## Setup
+- **Training stack: MLX** (`mlx-lm`, which has built-in LoRA fine-tuning and runs on the Apple GPU). Use PyTorch
+  with the MPS backend only where a library needs PyTorch, e.g. TRL for DPO/GRPO; otherwise prefer MLX-native loops.
+- **Memory:** 16 GB unified memory is shared by CPU and GPU. That's plenty for LoRA up to ~1B (1B in bf16 ≈ 2 GB of
+  weights); full fine-tuning at 1B would be tight. Avoid loading the 73k-answer animal prompt's dictionary several
+  times in one process.
+- **Heat:** the Air is fanless and slows down on sustained load, so prefer short, resumable jobs (one RFT round,
+  checkpoint, repeat) over one long run. Save checkpoints often (`checkpoints/` is git-ignored).
+- **Sampling for RFT/GRPO:** use `mlx_lm.generate` / batch generation. Sampling is the slow step, so reuse samples
+  (RFT) before moving to on-policy GRPO.
+
+The Windows laptop (Ryzen AI 7 350, no CUDA) is where the browser probing and reveal captures were done. Its in-page
+scripts live in `probe/`. Capturing more reveals needs a browser on whichever machine is used; the method is described
+above. A Dell Precision 5550 (small NVIDIA Quadro, 4 GB) is available but not planned for use.
+
+## Setup (Mac)
 
 ```bash
 git clone https://github.com/tng4480/krillion-bot.git && cd krillion-bot
 python3 -m venv .venv
-# macOS/Linux: .venv/bin/pip   Windows: .venv/Scripts/pip
 .venv/bin/pip install -r requirements.txt
 .venv/bin/python probe/emulator.py          # expect single 99%/95%, multi 91%
 .venv/bin/python analysis/strategies.py     # strategy table
-# Training extras, choose one:
-#   Mac:   pip install mlx-lm
-#   Dell:  pip install torch (CUDA build matching the driver) transformers peft trl bitsandbytes accelerate
+.venv/bin/pip install mlx-lm                # training/sampling on the Apple GPU
+# only if needed for DPO/GRPO via TRL: .venv/bin/pip install torch transformers peft trl
 ```
+
+Add whatever gets installed to `requirements.txt` so the environment can be rebuilt.
 
 ## Next steps, in order
 
@@ -87,8 +98,8 @@ python3 -m venv .venv
    `answers.parquet` (prompt_id, answer, aliases, tier, score), with category labels and a prompt-level split.
 2. **Eval harness.** Write `eval/play.py`: given a model, sample N guess lists per prompt, simulate the round with
    the emulator (retry rule plus optional preview-decline), and report E[round score] per prompt and category.
-3. **Zero-shot baselines** across sizes (e.g. SmolLM2 135M/360M, Qwen ~0.5B/1.5B, Gemma ~270M/1B; check what's
-   current).
+3. **Zero-shot baselines** across sizes, using MLX-converted checkpoints from the `mlx-community` Hugging Face org
+   (e.g. SmolLM2 135M/360M, Qwen ~0.5B/1.5B, Gemma ~270M/1B; check what's current).
 4. **SFT**, with targets built from answer lists plus heuristic plan labels; sample answers weighted by tier and leave
    basic answers last.
 5. **RFT rounds**, then DPO, then GRPO with the emulator reward.
