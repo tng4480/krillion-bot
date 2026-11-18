@@ -1,0 +1,37 @@
+{"prompt":"Name a movie where the main character is a talking animal","raw":"ratatui","res":"corr","to":"Ratatouille"}
+{"prompt":"Name a movie where the main character is a talking animal","raw":"ratat","res":"rej"}
+{"prompt":"Name a movie where the main character is a talking animal","raw":"fantastic mr fox","res":"scored","to":"Fantastic Mr. Fox","tier":"SCHOOLER","score":30}
+{"prompt":"Name a one-word food or drink that ends in O","raw":"espreso","res":"corr","to":"Espresso"}
+{"prompt":"Name a one-word food or drink that ends in O","raw":"gazpach","res":"corr","to":"Gazpacho"}
+{"prompt":"Name a one-word food or drink that ends in O","raw":"gzpcho","res":"rej"}
+{"prompt":"Name a one-word food or drink that ends in O","raw":"rizzoto","res":"corr","to":"Risotto"}
+{"prompt":"Name a one-word food or drink that ends in O","raw":"kalamato","res":"corr","to":"Affogato"}
+{"prompt":"Name a one-word food or drink that ends in O","raw":"pisco","res":"scored","to":"Pisco","tier":"RARE","score":60}
+{"prompt":"Name a one-word animal whose name is 7 or more letters","raw":"zxqvbnmk","res":"rej"}
+{"prompt":"Name a one-word animal whose name is 7 or more letters","raw":"flurbington","res":"rej"}
+{"prompt":"Name a one-word animal whose name is 7 or more letters","raw":"axolotel","res":"corr","to":"Axolotl"}
+{"prompt":"Name a one-word animal whose name is 7 or more letters","raw":"quokka","res":"rej","note":"valid animal, fails the 7-letter constraint"}
+{"prompt":"Name a one-word animal whose name is 7 or more letters","raw":"blobfsh","res":"corr","to":"Blobfish"}
+{"prompt":"Name a one-word animal whose name is 7 or more letters","raw":"pademelon","res":"scored","to":"Pademelon","tier":"DEEP CUT","score":85}
+{"prompt":"Name a retired player from the NBA, Premier League, La Liga, AFL or IPL (women's equivalents count too)","raw":"jordan","res":"corr","to":"Michael Jordan"}
+{"prompt":"Name a retired player from the NBA, Premier League, La Liga, AFL or IPL (women's equivalents count too)","raw":"beckam","res":"corr","to":"David Beckham"}
+{"prompt":"Name a retired player from the NBA, Premier League, La Liga, AFL or IPL (women's equivalents count too)","raw":"henry","res":"corr","to":"Thierry Henry"}
+{"prompt":"Name a retired player from the NBA, Premier League, La Liga, AFL or IPL (women's equivalents count too)","raw":"tendulkr","res":"corr","to":"Sachin Tendulkar"}
+{"prompt":"Name a retired player from the NBA, Premier League, La Liga, AFL or IPL (women's equivalents count too)","raw":"pavlic","res":"corr","to":"Matthew Pavlich"}
+{"prompt":"Name a retired player from the NBA, Premier League, La Liga, AFL or IPL (women's equivalents count too)","raw":"matthew pavlich","res":"scored","to":"Matthew Pavlich","tier":"RARE","score":60}
+{"prompt":"Name a city ending in -ville, -burg, -burgh or -bourg","raw":"blorpville","res":"corr","to":"Bloomville"}
+{"prompt":"Name a city ending in -ville, -burg, -burgh or -bourg","raw":"zxqburg","res":"rej"}
+{"prompt":"Name a city ending in -ville, -burg, -burgh or -bourg","raw":"nashvil","res":"corr","to":"Nashville"}
+{"prompt":"Name a city ending in -ville, -burg, -burgh or -bourg","raw":"strasburgh","res":"corr","to":"Strasburg"}
+{"prompt":"Name a city ending in -ville, -burg, -burgh or -bourg","raw":"kalamaburg","res":"rej"}
+{"prompt":"Name a city ending in -ville, -burg, -burgh or -bourg","raw":"orangeburg","res":"scored","to":"Orangeburg","tier":"RARE","score":60}
+{"prompt":"Name a fruit or vegetable that's white on the inside","raw":"spud","res":"corr","to":"Potato"}
+{"prompt":"Name a fruit or vegetable that's white on the inside","raw":"jicam","res":"corr","to":"Jicama"}
+{"prompt":"Name a fruit or vegetable that's white on the inside","raw":"kohlrbi","res":"corr","to":"Kohlrabi"}
+{"prompt":"Name a fruit or vegetable that's white on the inside","raw":"blorpnip","res":"rej"}
+{"prompt":"Name a fruit or vegetable that's white on the inside","raw":"manggostin","res":"corr","to":"Mangosteen"}
+{"prompt":"Name a fruit or vegetable that's white on the inside","raw":"salsify","res":"scored","to":"Salsify","tier":"RARE","score":60}
+{"prompt":"Name a playable character from Valorant, Overwatch, League of Legends or Apex Legends","raw":"zorak","res":"rej"}
+{"prompt":"Name a playable character from Valorant, Overwatch, League of Legends or Apex Legends","raw":"velkor","res":"corr","to":"Vel'Koz"}
+{"prompt":"Name a playable character from Valorant, Overwatch, League of Legends or Apex Legends","raw":"blorp","res":"rej"}
+{"prompt":"Name a playable character from Valorant, Overwatch, League of Legends or Apex Legends","raw":"kalista","res":"scored","to":"Kalista","tier":"DEEP CUT","score":85,"note":"exact match skips the preview and scores immediately"}
