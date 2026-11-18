@@ -1,0 +1,222 @@
+[
+ {
+  "prompt": "p1",
+  "strategy": "common",
+  "accept": 1.0,
+  "score_acc": 28.4,
+  "e_guess": 28.4,
+  "p85": 0.0,
+  "e_game": 29.0,
+  "e_game_preview": 29.0
+ },
+ {
+  "prompt": "p1",
+  "strategy": "markov",
+  "accept": 0.02,
+  "score_acc": 66.25,
+  "e_guess": 1.325,
+  "p85": 0.5,
+  "e_game": 38.0,
+  "e_game_preview": 37.5
+ },
+ {
+  "prompt": "p1",
+  "strategy": "sequel/extension",
+  "accept": 0.11,
+  "score_acc": 46.875,
+  "e_guess": 5.15625,
+  "p85": 0.14772727272727273,
+  "e_game": 43.0,
+  "e_game_preview": 43.0
+ },
+ {
+  "prompt": "p1",
+  "strategy": "descriptor prefix",
+  "accept": 0.02,
+  "score_acc": 30.0,
+  "e_guess": 0.6,
+  "p85": 0.0,
+  "e_game": 18.0,
+  "e_game_preview": 18.0
+ },
+ {
+  "prompt": "p2",
+  "strategy": "common",
+  "accept": 1.0,
+  "score_acc": 26.325,
+  "e_guess": 26.325,
+  "p85": 0.0,
+  "e_game": 27.0,
+  "e_game_preview": 27.0
+ },
+ {
+  "prompt": "p2",
+  "strategy": "markov",
+  "accept": 0.43625,
+  "score_acc": 74.58452722063038,
+  "e_guess": 32.5375,
+  "p85": 0.7679083094555874,
+  "e_game": 77.0,
+  "e_game_preview": 82.5
+ },
+ {
+  "prompt": "p2",
+  "strategy": "diminutive splice",
+  "accept": 0.3225,
+  "score_acc": 79.18604651162791,
+  "e_guess": 25.5375,
+  "p85": 0.8294573643410853,
+  "e_game": 83.75,
+  "e_game_preview": 83.75
+ },
+ {
+  "prompt": "p3",
+  "strategy": "common",
+  "accept": 1.0,
+  "score_acc": 27.625,
+  "e_guess": 27.625,
+  "p85": 0.0,
+  "e_game": 29.0,
+  "e_game_preview": 29.0
+ },
+ {
+  "prompt": "p3",
+  "strategy": "markov",
+  "accept": 0.22,
+  "score_acc": 82.75568181818181,
+  "e_guess": 18.20625,
+  "p85": 0.9488636363636364,
+  "e_game": 85.0,
+  "e_game_preview": 85.0
+ },
+ {
+  "prompt": "p3",
+  "strategy": "latin genus splice",
+  "accept": 0.48625,
+  "score_acc": 83.2133676092545,
+  "e_guess": 40.4625,
+  "p85": 0.9562982005141388,
+  "e_game": 79.5,
+  "e_game_preview": 85.0
+ },
+ {
+  "prompt": "p4",
+  "strategy": "common",
+  "accept": 1.0,
+  "score_acc": 27.775,
+  "e_guess": 27.775,
+  "p85": 0.0,
+  "e_game": 28.0,
+  "e_game_preview": 28.0
+ },
+ {
+  "prompt": "p4",
+  "strategy": "markov",
+  "accept": 0.06375,
+  "score_acc": 63.333333333333336,
+  "e_guess": 4.0375,
+  "p85": 0.3137254901960784,
+  "e_game": 61.25,
+  "e_game_preview": 67.0
+ },
+ {
+  "prompt": "p4",
+  "strategy": "name spam",
+  "accept": 0.2025,
+  "score_acc": 84.38271604938272,
+  "e_guess": 17.0875,
+  "p85": 0.9753086419753086,
+  "e_game": 85.0,
+  "e_game_preview": 85.0
+ },
+ {
+  "prompt": "p5",
+  "strategy": "common",
+  "accept": 1.0,
+  "score_acc": 23.85,
+  "e_guess": 23.85,
+  "p85": 0.0,
+  "e_game": 18.0,
+  "e_game_preview": 18.0
+ },
+ {
+  "prompt": "p5",
+  "strategy": "markov",
+  "accept": 0.685,
+  "score_acc": 76.3412408759124,
+  "e_guess": 52.29375,
+  "p85": 0.6879562043795621,
+  "e_game": 79.75,
+  "e_game_preview": 82.5
+ },
+ {
+  "prompt": "p5",
+  "strategy": "direction prefix",
+  "accept": 0.07625,
+  "score_acc": 85.0,
+  "e_guess": 6.48125,
+  "p85": 1.0,
+  "e_game": 80.75,
+  "e_game_preview": 80.75
+ },
+ {
+  "prompt": "p5",
+  "strategy": "suffix splice",
+  "accept": 0.485,
+  "score_acc": 79.80670103092784,
+  "e_guess": 38.70625,
+  "p85": 0.8221649484536082,
+  "e_game": 82.25,
+  "e_game_preview": 85.0
+ },
+ {
+  "prompt": "p6",
+  "strategy": "common",
+  "accept": 1.0,
+  "score_acc": 26.475,
+  "e_guess": 26.475,
+  "p85": 0.0,
+  "e_game": 26.0,
+  "e_game_preview": 26.0
+ },
+ {
+  "prompt": "p6",
+  "strategy": "markov",
+  "accept": 0.11125,
+  "score_acc": 62.30337078651685,
+  "e_guess": 6.93125,
+  "p85": 0.4606741573033708,
+  "e_game": 69.5,
+  "e_game_preview": 73.75
+ },
+ {
+  "prompt": "p6",
+  "strategy": "descriptor prefix",
+  "accept": 0.15375,
+  "score_acc": 49.552845528455286,
+  "e_guess": 7.61875,
+  "p85": 0.12195121951219512,
+  "e_game": 51.5,
+  "e_game_preview": 51.5
+ },
+ {
+  "prompt": "p7",
+  "strategy": "common",
+  "accept": 1.0,
+  "score_acc": 29.3,
+  "e_guess": 29.3,
+  "p85": 0.0,
+  "e_game": 29.0,
+  "e_game_preview": 29.0
+ },
+ {
+  "prompt": "p7",
+  "strategy": "markov",
+  "accept": 0.385,
+  "score_acc": 56.80194805194805,
+  "e_guess": 21.86875,
+  "p85": 0.17207792207792208,
+  "e_game": 60.5,
+  "e_game_preview": 65.0
+ }
+]
