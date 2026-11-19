@@ -1,0 +1,102 @@
+{"prompt": "Name a living animal bigger than a human", "raw": "cuckooshrike", "res": "rej", "to": null}
+{"prompt": "Name a living animal bigger than a human", "raw": "bombo", "res": "corr", "to": "Bobo horse"}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "profais", "res": "rej", "to": null}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "kowar", "res": "corr", "to": "Kowak"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "biga", "res": "rej", "to": null}
+{"prompt": "Name someone who directed a movie with at least 1,000 votes on IMDb", "raw": "jumana", "res": "rej", "to": null}
+{"prompt": "Name someone who directed a movie with at least 1,000 votes on IMDb", "raw": "divinill", "res": "rej", "to": null}
+{"prompt": "Name someone who directed a movie with at least 1,000 votes on IMDb", "raw": "filips", "res": "rej", "to": null}
+{"prompt": "Name someone who directed a movie with at least 1,000 votes on IMDb", "raw": "chulasa", "res": "rej", "to": null}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "lily peters", "res": "rej", "to": null}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "tributes", "res": "rej", "to": null}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "troy", "res": "rej", "to": null}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "neo", "res": "rej", "to": null}
+{"prompt": "Name a country where soccer isn't the most watched sport", "raw": "firenze", "res": "rej", "to": null}
+{"prompt": "Name a country where soccer isn't the most watched sport", "raw": "sahara", "res": "rej", "to": null}
+{"prompt": "Name a country where soccer isn't the most watched sport", "raw": "viking", "res": "rej", "to": null}
+{"prompt": "Name a country where soccer isn't the most watched sport", "raw": "omaha", "res": "rej", "to": null}
+{"prompt": "Name a TV show with at least five seasons (listed on IMDb)", "raw": "helle", "res": "rej", "to": null}
+{"prompt": "Name a TV show with at least five seasons (listed on IMDb)", "raw": "senglots", "res": "rej", "to": null}
+{"prompt": "Name a TV show with at least five seasons (listed on IMDb)", "raw": "the scander", "res": "rej", "to": null}
+{"prompt": "Name a TV show with at least five seasons (listed on IMDb)", "raw": "joshua", "res": "rej", "to": null}
+{"prompt": "Name a TV show with at least five seasons (listed on IMDb)", "raw": "keeney", "res": "rej", "to": null}
+{"prompt": "Name a living animal bigger than a human", "raw": "bulbosu", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a living animal bigger than a human", "raw": "mulwich", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a living animal bigger than a human", "raw": "skunk", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a living animal bigger than a human", "raw": "ghaia", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a living animal bigger than a human", "raw": "tallaby", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a living animal bigger than a human", "raw": "curia", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a living animal bigger than a human", "raw": "hightie", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a living animal bigger than a human", "raw": "redhead", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a living animal bigger than a human", "raw": "curle", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a living animal bigger than a human", "raw": "tanda", "res": "corr", "to": "Giant panda", "src": "live_run2"}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "ashdown", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "ontati", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "libya", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "algout", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "aangan", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "odalli", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "ireland", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "hongli", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "yaoca", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "dogland", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "malpara", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "brazil", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name a location from Star Wars, Lord of the Rings, Fortnite, SpongeBob, or a Disney/Pixar movie (real places don't count)", "raw": "fanes", "res": "corr", "to": "Fang", "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "krachat", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "plyter", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "grammer", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "rubbers", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "olyptic", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "fiance", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "andad", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "scrub", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "sters", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "dubium", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "leatels", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "mpona", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "trester", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "macilla", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "monter", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "jelly", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "spagi", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "flower", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "exter", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "padong", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "kokoro", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "blace", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "yellow", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "balder", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "vesters", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "nikki", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "habotin", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "cuddle", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "sucker", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "carboss", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "Blush", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "Lotion", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "Pepto-Bismol", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "Ketchup", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "Double-Duty dressing", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "Candle", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "Human skin treatment soap", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "Coffee creamer", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "Makeup remover", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something designed to stick to your skin that you peel off later", "raw": "Sunscreen spray", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name someone who directed a movie with at least 1,000 votes on IMDb", "raw": "andre", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name someone who directed a movie with at least 1,000 votes on IMDb", "raw": "spock", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name someone who directed a movie with at least 1,000 votes on IMDb", "raw": "santel", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name someone who directed a movie with at least 1,000 votes on IMDb", "raw": "barbers", "res": "corr", "to": "Clive Barker", "src": "live_run2"}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "bottin", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "janine", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "propel", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "mozart", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "yoyoshi", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "paint", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "sympy", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "detio", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "rebook", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "cordium", "res": "rej", "to": null, "src": "live_run2"}
+{"prompt": "Name something an app can ask permission to access on your phone", "raw": "texas", "res": "corr", "to": "Text messages", "src": "live_run2"}
+{"prompt": "Name a country where soccer isn't the most watched sport", "raw": "astland", "res": "corr", "to": "Estonia", "src": "live_run2"}
+{"prompt": "Name a TV show with at least five seasons (listed on IMDb)", "raw": "dallas", "res": "corr", "to": "Dallas", "src": "live_run2"}

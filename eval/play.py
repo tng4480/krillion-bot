@@ -32,17 +32,25 @@ SYSTEM = (
 )
 
 
-def render_prompt(tokenizer, text):
-    msgs = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": text}]
+SYSTEM_SPAM = (
+    "You play Krillion. For a prompt like 'Name a ...', list about 30 guesses. Wrong guesses are free and near-misses "
+    "get autocorrected to real answers, so write many plausible-looking entries of the right kind that obey the "
+    "prompt's rules, then end with 3 obvious answers. Reply as: <guesses> g1 ; g2 ; ..."
+)
+SYSTEMS = {"plan": SYSTEM, "spam": SYSTEM_SPAM}
+
+
+def render_prompt(tokenizer, text, system="plan"):
+    msgs = [{"role": "system", "content": SYSTEMS[system]}, {"role": "user", "content": text}]
     if getattr(tokenizer, "chat_template", None):
         # enable_thinking=False: Gemma 4 / Qwen 3 templates otherwise spend the token budget reasoning
         kw = dict(add_generation_prompt=True, tokenize=False, enable_thinking=False)
         try:
             return tokenizer.apply_chat_template(msgs, **kw)
         except Exception:  # some templates reject a system role
-            msgs = [{"role": "user", "content": SYSTEM + "\n\n" + text}]
+            msgs = [{"role": "user", "content": SYSTEMS[system] + "\n\n" + text}]
             return tokenizer.apply_chat_template(msgs, **kw)
-    return f"{SYSTEM}\n\nPrompt: {text}\n"
+    return f"{SYSTEMS[system]}\n\nPrompt: {text}\n"
 
 
 def parse_output(out):
@@ -98,7 +106,8 @@ def play_round(guesses, D, exact, tries=40, preview=False, decline_at=30, cache=
 # ---------- policies ----------
 
 class MLXPolicy:
-    def __init__(self, model, adapter=None, temp=1.0, top_p=0.95, max_tokens=256, batch=8):
+    def __init__(self, model, adapter=None, temp=1.0, top_p=0.95, max_tokens=256, batch=8, system="plan"):
+        self.system = system
         from mlx_lm import load as mlx_load
         from mlx_lm.sample_utils import make_sampler
         self.model, self.tok = mlx_load(model, adapter_path=adapter)
@@ -107,7 +116,7 @@ class MLXPolicy:
 
     def sample(self, text, answers, D, n):
         from mlx_lm import batch_generate
-        ids = self.tok.encode(render_prompt(self.tok, text), add_special_tokens=False)
+        ids = self.tok.encode(render_prompt(self.tok, text, self.system), add_special_tokens=False)
         outs = []
         while len(outs) < n:
             k = min(self.batch, n - len(outs))
@@ -128,7 +137,7 @@ class GeneratorPolicy:
 
 def make_policy(a):
     if a.policy.startswith("mlx:"):
-        return MLXPolicy(a.policy[4:], a.adapter, a.temp, a.top_p, a.max_tokens, a.batch)
+        return MLXPolicy(a.policy[4:], a.adapter, a.temp, a.top_p, a.max_tokens, a.batch, a.system)
     import strategies
     gens = {"common": strategies.common_answers, "markov": strategies.markov}
     return GeneratorPolicy(gens[a.policy], a.tries)
@@ -151,10 +160,18 @@ def main():
     ap.add_argument("--max-tokens", type=int, default=256)
     ap.add_argument("--batch", type=int, default=8)
     ap.add_argument("--name", default=None, help="output name under runs/eval/")
+    ap.add_argument("--system", default="plan", choices=["plan", "spam"])
+    ap.add_argument("--tsplit", default=None, help="date split (env/game.py): train|val|test, pools >= --min-pool")
+    ap.add_argument("--min-pool", type=int, default=300)
     a = ap.parse_args()
 
     P, A = load()
-    if a.split != "all":
+    if a.tsplit:
+        sys.path.insert(0, str(ROOT / "env"))
+        from game import split_prompts
+        _, P = split_prompts(P, a.min_pool)
+        P = P[P["tsplit"] == a.tsplit].assign(split=a.tsplit)
+    elif a.split != "all":
         P = P[P["split"] == a.split]
     if a.only:
         P = P[P["prompt_id"].isin(a.only.split(","))]

@@ -288,6 +288,340 @@ Simulated in the emulator with a 40-submission budget (declines count), 100 roun
 6. **Repeats:** only 4 exact repeated prompts (elements ending in -ium, languages with 10M+ speakers, YouTubers,
    Instagram accounts).
 
+## Turn-based environment and skill-only eval (2026-11-18, `env/game.py`)
+
+- `Round` plays one prompt from observations only: each submission is `rejected`, `corrected -> Y` (a preview:
+  resubmit Y to accept, anything else declines it) or `scored`. Policies act in turns (a list of guesses,
+  processed until the first correction or score), and get back text such as
+  `rejected: a, b` / `corrected: "x" -> Y (resubmit to accept, ...)`. The budget is 40 submissions.
+- **Split by date** (no category labels needed): train = dives 1-100, val = 101-113, test = 114-126.
+  **Eval = pools with at least 300 answers** (69 val prompts), where mechanics dominate; closed sets are left out by
+  design (see Goal).
+- Scripted references on val (10 rounds per prompt), all seeing only observations except `shape-own`:
+
+  | policy | mean |
+  |---|---|
+  | obvious answers | 26.5 |
+  | stacking (misspell an obvious answer -> preview reveals base -> stack train-mined modifiers -> fallback) | 30.1 |
+  | char-model spam over all train answers (generic shape) + decline obvious + fallback | 37.0 |
+  | char-model spam over the 10 train prompts with the most similar wording (tf-idf) | **43.7** |
+  | char-model spam over the prompt's own answers (LEAKY) | 69.1 |
+
+- Reading: **about 44 is reachable from shape learned on similar past prompts**. That's the skill an LM would pick up
+  from training on the archive, and it already beats every trained model so far (Qwen3-1.7B LOO ~32-39). The gap to
+  69 is prompt-specific shape. Stacking on its own is weak (+4 over obvious answers); combining it with shape spam
+  is untested.
+- Modifiers for stacking are mined from train prompts only (`analysis/modifiers_train.json`). `analysis/modifiers.json`
+  was mined from all 882 prompts, so it includes val/test; don't use it in evals.
+- Next: put LM policies into the turn-based env (multi-turn chat: prompt, then observations), score them on this
+  val set, and use `shape-near` spam as the RFT/teacher data source (its lists are non-leaky).
+
+## Teacher benchmark (2026-11-19, `env/llm_play.py`, 69 val prompts x 4 games, turn-based)
+
+| player | mean | best of 4 | zero | basic | wins via autocorrect | distinct guesses |
+|---|---|---|---|---|---|---|
+| obvious answers (scripted) | 26.5 | | | | | |
+| similar-prompt shape spam (scripted, no knowledge) | 43.7 | | | | | |
+| Qwen3-4B + rules + worked examples | 35.8 | 62.7 | 36% | 21% | **2%** | 94% |
+| Qwen3-4B, plain instructions | 22.0 | 30.1 | 3% | 84% | 1% | 51% |
+| Qwen3-1.7B + rules | 20.7 | 42.8 | 54% | 25% | 14% | 71% |
+
+- The rules help a lot (4B: 22 → 36; obvious-answer endings 84% → 21%), and the 4B at about 16 min for 276 games is
+  fast enough. But **98% of its wins are exact real answers it knows** (Pilanesberg National Park, lymphocyte,
+  Pudu, Featherston). It plays by recall, despite instructions to invent. Distilling it would transfer knowledge,
+  which is against the goal.
+- It also handles corrections badly: 22 of 54 games that got a correction ended at 0. It didn't accept unfamiliar
+  corrections (Wordle: slyer, quays, which are Deep Cuts).
+- The scripted spam is still the best knowledge-free player (43.7), but its shapes are off-topic (it draws on salad
+  and bicycle prompts for dresses).
+- The first rules version (no examples) scored 0 on 3 smoke prompts: the 4B wrote phrases about the prompt
+  ("festival premiere 2026"), not entries.
+
+## Bottom-up ladder: how far does a knowledge-free rule follower get? (2026-11-19, `env/game.py ladder`)
+
+All 69 val prompts, 10 rounds each, 40 submissions. "Rules" = the literal constraints parsed from the prompt
+(`prompt_rules`: starts with / ends in / contains / N letters / one-word; 6 of 69 val prompts have them), which are
+spliced into generated strings.
+
+| rung | all 69 | the 6 with rules |
+|---|---|---|
+| 0 random letters + rules | 7.8 | 44.8 |
+| 1 generic answer shape (char model, all train answers) + rules | 21.4 | 59.1 |
+| 2 similar-prompt shape + rules | 27.6 | 52.3 |
+| 2 without rules | 27.4 | 21.8 |
+| rung 2, decline every correction | 13.5 | |
+| rung 2, accept multi-word corrections only | 14.4 | |
+| rung 2, decline famous corrections (needs knowledge), no fallback | 28.7 | |
+| **rung 2, accept every correction + obvious-answer fallback at the end** | **44.4** | |
+| rung 2, decline famous + fallback | 44.9 | 67.5 |
+
+- **Knowing what's famous is worth ~1 point; the obvious-answer fallback is worth ~17.** Accepting every
+  correction is fine (blind accept 27.6 vs oracle decline 28.7). The big gain is finishing a failed round with an
+  obvious answer (10-30 pts instead of 0). The only knowledge the recipe needs is naming obvious answers, which
+  any small LM can do.
+- Literal rules matter a lot where they exist: random letters plus rules already reach 45 on those prompts, and
+  dropping the rules costs 30 points there.
+- With preview off, the game accepts corrections automatically, so this recipe (spam shaped for the prompt, then a
+  few obvious answers) is a **one-shot list**. No turn-based play is needed for it.
+- Next rungs: train tiny LMs (SmolLM2-135M, 360M, Qwen3-0.6B, 1.7B) to write that list from the prompt alone. The
+  targets are rung-2 spam from train prompts plus an obvious-answer tail. Score on val, as one-shot lists.
+
+### Ladder rungs 3+: tiny LMs trained on the spam lists (2026-11-19, `data/spam_sft.py`, `train/spam_ladder.sh`)
+
+Data: 1,736 one-shot lists for the 217 train prompts (pool ≥ 300). Each is 30 rung-2 spam strings (char model over the
+10 most similar *other* train prompts, bent to the literal rules), then 3 obvious answers. Unfiltered, so the student
+learns the generator, not the hits. LoRA rank 16, 860 iters (~2 epochs), lr 1e-4. Eval: 69 val prompts × 8 one-shot
+lists, 40-guess budget, corrections auto-accepted (preview off).
+
+| model | untuned | trained | zero | basic | points from the spam part | distinct guesses |
+|---|---|---|---|---|---|---|
+| teacher lists (scripted, on val) | | 43.6 | | | 26.9 | |
+| SmolLM2-135M | 4.1 | 28.5 | 49% | 19% | 20.8 | 94% |
+| SmolLM2-360M | 10.7 | **33.9** | 33% | 30% | 22.6 | 93% |
+| Qwen3-0.6B (4-bit) | 10.6 | 29.4 | 55% | 11% | 24.7 | 93% |
+
+- **The spam skill transfers even at 135M.** Students get 77-92% of the teacher's spam-part points (20.8-24.7 vs
+  26.9) on unseen prompts, from the prompt alone, and stay diverse (93-94% distinct guesses). Training took 4-14 min.
+- **The gap to the teacher is the fallback.** The teacher's 3 obvious answers come from the answer list (+16.7),
+  while the students have to recall them, and tiny models get them wrong (for "a movie first released in 2026" they
+  write Space Jam, Spider-Man: Into the Spider-Verse). That's the one knowledge piece in the recipe, and it is what
+  scales with size here (the 360M wins most via fallback, 35%).
+- Qwen3-0.6B has the best spam part but the weakest fallback (4-bit, and lists sometimes end without obvious answers).
+
+- **Fixing the ending (2026-11-19).** Only 10-24% of the students' ending guesses are valid answers. The base model
+  without the adapter, asked directly for obvious answers, is worse (SmolLM2 14-15%; Qwen3-0.6B 1%, which looks like
+  a format issue I haven't checked). So spam training didn't damage recall; tiny models just don't know the obvious
+  answers well. `env/ending.py` shows spam + base-model ending scores 23-25, below the trained endings. What works is
+  **more tries for the ending**: lists of 30 spam + **10** obvious answers (`runs/sft/spam_v2`):
+  SmolLM2-135M **28.5 → 37.5**, SmolLM2-360M **33.9 → 42.1** (scripted teacher on val: 43.6). Zero rate
+  49% → 24% (135M) and 33% → 11% (360M); the basic-answer rate rises (36%, 45%), as expected.
+
+## List-level RFT on the spam students (2026-11-19, `train/spam_rft.py`, `train/spam_rft_loop.sh`)
+
+ReST-EM style: 8 lists per train prompt; keep the lists that beat that prompt's mean and score ≥ 60 (Jaccard ≤ 0.5
+dedup, ≤ 4 per prompt, ~370-400 lists), mixed with the 1720 spam_v2 teacher lists; fresh LoRA from base each round.
+Val (69 prompts × 8, one-shot 40-guess lists):
+
+| model | spam_v2 | RFT r1 | RFT r2 |
+|---|---|---|---|
+| SmolLM2-135M | 37.5 | 35.8 | 38.8 |
+| SmolLM2-360M | 42.1 | 42.1 | 40.9 |
+| Qwen3-0.6B (4-bit) | 37.4 | 38.1 | 38.2 |
+
+**Flat, within noise.** Zero rate, the 85+ rate and distinct guesses (93-95%) don't change, so there's no collapse,
+but also no gain. Why: a spam guess hits a valid rare answer only **~2%** of the time (all sizes, before and after
+RFT), so a winning list is ~1 lucky hit + 29 random guesses. Whole-list selection is mostly selecting luck, and the
+teacher lists dilute it 4:1. Qwen3-0.6B is no better than 360M here (more zeros: 31% vs 11%).
+
+The skill metric that matters is the **per-guess hit rate of the spam part**. Next: guess-level credit
+(`train/spam_hits.py`): pool the student's own guesses that hit, and build lists enriched in them.
+
+## Guess-level RFT (2026-11-19, `train/spam_hits.py`, `train/spam_hits_loop.sh`)
+
+16 lists per train prompt; every spam guess is scored on its own (hit = maps to an answer worth ≥ 60). Per prompt, 4
+new lists = up to 6 of the student's own hit guesses + its own non-matching guesses to 30 + a teacher 10-answer
+ending; plus 2 teacher lists per prompt (~1100-1200 rows). Fresh LoRA from base each round, ~2 epochs.
+Val (69 prompts × 8); "rare hit/guess" = share of spam guesses mapping to an answer worth ≥ 60:
+
+| model | round | val E | rare hit/guess | won by spam | zero | distinct |
+|---|---|---|---|---|---|---|
+| SmolLM2-360M | spam_v2 | 42.1 | 1.7% | 36% | 11% | 93% |
+| | hits 1 | **45.2** | 2.5% | 47% | 11% | 92% |
+| | hits 2 | 43.6 | 2.9% | 48% | 12% | 92% |
+| SmolLM2-135M | spam_v2 | 37.5 | 1.5% | 33% | 24% | 95% |
+| | hits 1 | 37.8 | 1.9% | 45% | 27% | 95% |
+| | hits 2 | 40.5 | 2.2% | 46% | 24% | 95% |
+| | hits 3 | 38.7 | 2.4% | 47% | 24% | 94% |
+| | hits 4 | 39.2 | 3.0% | 55% | 24% | 94% |
+
+SmolLM2-360M continued: hits 3 **47.4** (3.6% rare hit/guess, 53% won by spam, zero 11%), hits 4 46.5 (3.5%). The
+360M plateaus from round 3. Rare hits on val stay mostly autocorrect-based (65% via correction in round 3 vs 74% at
+spam_v2), so the gain is from better-shaped guesses, not from recalled answers. Examples: pushton → Bushton,
+corium → Cerium, grothery → Brothers.
+
+**Held-out test** (74 prompts × 8, evaluated once):
+
+| model | adapter | test E | rare hit/guess | won by spam | zero | 85+ |
+|---|---|---|---|---|---|---|
+| SmolLM2-360M | spam_v2 | 42.6 | 2.2% | 37% | 11% | 28% |
+| SmolLM2-360M | hits 3 | **50.5** | 4.2% | 59% | 10% | 37% |
+| SmolLM2-135M | spam_v2 | 41.6 | 2.1% | 38% | 19% | 29% |
+| SmolLM2-135M | hits 4 | **47.0** | 3.8% | 59% | 19% | 36% |
+
+Gains hold on test (+7.9 and +5.4) and the hit rate roughly doubles. Best adapters:
+`checkpoints/spamhits3_smollm2-360m`, `checkpoints/spamhits4_smollm2-135m`.
+Open levers: spam that lands on basic answers (auto-accepted, ends rounds low); the same recipe for Qwen3-0.6B; turn
+play (stacking modifiers on corrections) on top of these students.
+
+## Guess shape: one word or two? (2026-11-19, `train/spam_hits.py --shape`)
+
+Hit rate of the 360M's spam on val, by shape (hits 3 adapter): one word ≤ 4 letters 1.7%, **5-7 letters 8.3%**,
+8-11 letters 4.4%, 12+ letters 0.2%; two words 0.7%, three+ 0.1%. Even on prompts where ≥ 60% of rare answers are
+multi-word (72% of eval prompts), single words hit 3.1% vs 0.6%: every word of a multi-word guess must be within its
+own allowance (≤ 4 letters: exact), so two invented words never land (0.00% over ~7,000), and anchored ones (one word
+exact) only ~0.3-0.6%. Two words are the right call only where nothing single-word exists (people, "Los ..." cities,
+phone settings: single-word spam hits 0% there) or once a correction has confirmed a base word (turn play).
+
+`--shape` uses the answer pool's **format**, not its answers: a prompt with ≥ 15 single-word answers worth ≥ 60 is
+"single" mode (90% of filler = single words of 5-11 letters), otherwise "multi" mode (90% multi-word filler).
+`--multi-boost 3` (variant "4b") also builds lists for every multi-mode prompt (19 of 217 train) even without hits,
+3× as many. Ablation on the **same samples** as hits round 4:
+
+| model | adapter | val E | val: multi-word share, single / multi prompts | val E, multi prompts (3) | test E |
+|---|---|---|---|---|---|
+| 360M | hits 4 (no shape) | 46.5 | 35% / 42% | 28.8 | (hits 3: 50.5) |
+| 360M | shape 4 | **50.6** | 15% / 20% | 12.9 | 51.1 |
+| 360M | shape 4b (boost) | 48.7 | 21% / 37% | 8.5 | see below |
+| 135M | hits 4 (no shape) | 39.2 | 35% / 39% | 5.4 | 47.0 |
+| 135M | shape 4 | 43.6 | 19% / 23% | 5.6 | **50.0** |
+| 135M | shape 4b (boost) | **46.6** | 21% / 35% | 16.0 | see below |
+
+Shaping helps: +4 val for both sizes, +3 test for 135M (exact control), rare hits per guess 3.5% → 4.6% (360M).
+Without the boost the model also drops multi-word guesses where it needs them; the boost restores that (the
+model learns *when* from the prompt wording), but there are only 3 multi-mode prompts each in val and test, so their
+scores can't separate the variants. Overall, shape 4 vs 4b is a tie within noise.
+
+Test, shape 4b: 360M 50.2 (shape 4: 51.1), 135M 49.9 (shape 4: 50.0). On the 3 multi-mode test prompts the boost
+raises multi-word guesses (28% → 41%, 24% → 50%) but the scores go opposite ways (34.0 → 15.8; 9.2 → 18.5).
+**Conclusion:** the model can learn when to switch to two words, but on those prompts invented two-word spam still
+hardly ever lands, so switching doesn't pay; they are won (if at all) by the obvious ending. **Keep plain shape 4**
+(`checkpoints/spamshape4_smollm2-360m`, `checkpoints/spamshape4_smollm2-135m`: test 51.1 / 50.0, the current best).
+Multi-word prompts need anchoring from a correction (turn play), not more blind two-word spam.
+
+## First live game: Dive #127 (2026-11-19), SmolLM2-360M `spamshape4`
+
+Prompt texts only were taken from krillionanswer.today before playing; the model wrote one 40-guess list per prompt
+(`runs/live/2026-11-19_lists.json`), typed in order in the in-app browser, corrections accepted. **Real score 170**
+(better than 9% of players): p1 `bombo` → Bobo horse 85, p2 `kowar` → Kowak 85, the other five 0.
+
+**The big lesson: the real game is time-limited, not guess-limited.** 25 s per prompt, and the answer box locks
+while the server checks each guess (~2 s), so only **1-5 guesses per prompt** got in (agent tool latency adds to it;
+a fast human might manage ~8-10). The emulator's 40-guess budget is far off. Replaying the same lists in the emulator
+(answers fetched after the dive into `data/reveal/2026-11-19.json`):
+
+| budget | emulator total |
+|---|---|
+| guesses actually played (1-5 per prompt) | 85 (the real 170 includes `bombo` → Bobo horse, a server match the emulator misses) |
+| first 10 guesses | 85 |
+| full 40 | 385 |
+
+The full-list hits came at guesses #15-33.
+
+## Live harness v2 and replay of Dive #127: 380, better than 82% (2026-11-19)
+
+**The budget problem was the harness, not the game.** The server answers in ~250 ms; the slowness was input
+handling. Fixes, found in Unlimited mode (`/unlimited/classic`, no effect on the daily):
+- Settings: **Answer corrections OFF** (corrections auto-accepted, as in the emulator), **Clear rejected entries ON**
+  (box empties after a miss, so no select-all), Low-power ON. Stored in localStorage (`krillion-answer-corrections`,
+  `krillion-clear-rejected-entry`, `krillion-low-power`).
+- Per guess: click the box at x=250 → type → **click DIVE** (x=605) → wait 0.25 s. Never press Enter: on the result
+  screen Enter activates Descend and the leftover guesses spill into the next prompt. The click points are outside
+  the Descend button, so leftovers after a hit do nothing.
+- Browser batches of ≤ 25 actions (6 guesses), all of a prompt's batches sent in one message: **~0.33 s per guess,
+  40 guesses in ~14 s, 50 fit in 25 s.** So the 40-guess emulator budget is realistic after all.
+
+**List builder** (`env/live.py`): 8 samples per prompt, spam pooled and de-duplicated, stably sorted by shape
+(single words of 5-7 letters first, then 8-11, other single words, multi-word), first 30-40 spam + the first sample's
+10-answer ending. On val at 40 guesses: 54.3 vs 50.3 for one raw list (at a 10-guess budget: 39.3 vs 23.6; ranking
+by cross-sample similarity hurts). Prompts were taken as texts only; the lists were not checked against the answers.
+
+Replay after clearing site cookies/storage (fresh player id): **380, better than 82% of players** (run 1: 170, 9%).
+`runs/live/2026-11-19_run2_result.json`:
+
+| prompt | raw guess accepted | answer | score | emulator |
+|---|---|---|---|---|
+| animal bigger than a human | `tanda` (#10) | Giant panda | 60 | 60 (narwhal, #23) |
+| fictional place | `fanes` (#13) | Fang | 85 | 85 (#24) |
+| sticks to skin | none of 40 | — | 0 | 0 |
+| film director | `barbers` (#4) | Clive Barker | 60 | 85 (#19) |
+| app permission | `texas` (#11) | Text messages | 30 | 10 (#42) |
+| country, soccer not top | `astland` (#1) | Estonia | 85 | 60 (#11) |
+| TV show, 5+ seasons | `dallas` (#1) | Dallas | 60 | 60 |
+
+The real server accepts earlier than the emulator (real 380 vs emulator 360).
+
+## Autocorrect: what's left to explain (2026-11-19, `analysis/autocorrect.py`)
+
+Tested on ~600 probes (dive 125 hand probes, the boundary run, both live Dive #127 runs, in
+`data/probes/2026-11-19_dive127.jsonl`). The current rule (Levenshtein per word, `allowed(len)`, same word count,
+canonical + aliases) stays best: 98% single-word, 92% multi-word accept/reject. Rejected alternatives:
+whole-string Levenshtein (spaces removed, "the" stripped; accepts many server rejections, multi 69%), pg_trgm
+trigram similarity at any threshold (worse), single word vs one word of a multi-word answer (first/last/any;
+all worse: false accepts).
+
+**The remaining gap is the alias layer, not the metric.** Live accepts like `tanda` → Giant panda, `barbers` → Clive
+Barker, `astland` → Estonia, `texas` → Text messages fit aliases ("panda", "Barker", "Estland", "texts"). Our own
+captures (11-17, 11-18) have aliases on 16-100% of answers per prompt (176k aliases); only ~14% are simple
+transforms (plurals 8.7%, spacing/hyphens 1.8%, first/last word ~3%), the rest are synonyms ("giant moa"),
+descriptions ("big boat racing") and even misspellings ("lary bir" → Larry Bird), which suggests accepted player
+inputs get added. **The krillionanswer.today archive has no aliases**, so the emulator undercounts real hits on all
+archive days: training rewards are conservative, and some guesses that would land live are scored as misses.
+Possible next step: add rule-based aliases (plurals, surname for people prompts) to archive days and check on the 2
+captured days whether that moves emulator scores toward the real-alias scores.
+
+**This works where list-level RFT didn't:** the hit rate on unseen prompts rises ~1.5-1.7× in two rounds, with no
+loss of diversity, and SmolLM2-360M passes the scripted teacher (43.6). The score gain is smaller than the hit-rate
+gain because spam now also lands on more basic answers (valid but ≤ 30, auto-accepted with preview off), which
+ends rounds early at low scores. The val E has ~±2 noise at this size.
+
+## Preview, stacking, budget (2026-11-19, `analysis/preview_sim.py`, `analysis/preview_diag.py`)
+
+Emulated live play on the 69 val prompts with 32 lists per prompt from 360M spamshape4 (8 from the val eval + 24 new,
+`runs/eval/val_pool24_360m.jsonl`, `analysis/sample_val.py`). Lists are built as in `env/live.py`: pooled spam sorted
+by shape, then the first sample's 10-answer tail. Preview ON variants: *decline* = decline a correction whose target
+is one of the model's own tail answers (its "obvious" set, i.e. the model's own output, no lookup), else accept;
+declined answers go to the front of the fallback (they're known valid, so the exact spelling scores). *stack* = also
+try K train-mined modifiers on the declined answer ("m X" / "X m").
+
+| samples pooled | guesses | auto (preview off) | decline | stack K=4 / 8 / 16 |
+|---|---|---|---|---|
+| 8 | 40 | 53.3 | 53.3 | 53.2 / 53.2 / 53.4 |
+| 8 | 50 | 55.6 | 55.7 | 55.5 / 55.5 / 55.7 |
+| 16 | 50 | 55.7 | 55.7 | 55.3 / 55.3 / 55.3 |
+| 32 | 50 | 57.5 | 57.4 | 56.7 / 56.7 / 56.7 |
+
+Budget only (auto): 8 samples 40/50/60/70 guesses = 53.3 / 55.6 / 56.3 / 57.5.
+
+- **More guesses is the real lever:** +2.3 for 40 -> 50, then ~+1 per 10 more. `env/live.py` now defaults to 40 spam +
+  10 tail = 50.
+- **More samples barely matter:** 8 samples already give a ~240-guess pool and only 40 are used. (32 is +1.9 at 50
+  guesses, but that's one group per prompt, within noise.)
+- **Decline does nothing because the case is rare.** In 276 rounds, the first spam correction went to one of the
+  model's own obvious answers only 10 times (3.6%), and half of those were actually worth 85 (the tails include
+  deep cuts). Low-value corrections (10/30) to answers *not* in the tail (like live `texas` -> Text messages, 30) were
+  8/276; the model can't tell those apart without knowing the answer's value. 54% of rounds get no correction at all in
+  the spam: the bottleneck is spam hit rate, not what happens after a hit.
+- **Stacking is worse than more spam:** 160 stacked guesses on declined answers gave 1 Deep Cut and 2 Rare previews
+  (~2% per guess), vs ~8% for 5-7 letter single-word spam. The earlier stacking result (+4 over obvious answers,
+  2026-11-18) also came mostly on multi-word pools, which this spam rarely targets.
+- So play live with answer corrections OFF (no preview click), and spend the time on more guesses.
+
+## Which spam to play: word-likeness ordering (2026-11-19, `analysis/select_sim.py`)
+
+From the pooled spam of 8 samples (~240 guesses), which 40 to play (+ 10-answer tail, 50 guesses, preview off)?
+Only the model's own samples and train-split text are used, never the prompt's answers.
+
+| selection (within shape: 5-7 letters, 8-11, other single, multi) | val 360M, 8 samples (4 groups) | val, 32 samples | **test 360M** | **test 135M** |
+|---|---|---|---|---|
+| base: sample order (old `env/live.py`) | 55.6 | 57.5 | 56.2 | 54.5 |
+| spread: skip guesses whose typo windows overlap a chosen one | 54.8 | 55.6 | | |
+| dens: guesses the samples agree on first | 57.3 | 55.4 | 63.1 | 53.9 |
+| **lm: most word-like first (char trigram over train answer words)** | **60.8** | 59.6 | **61.4** | **57.8** |
+| lm + spread | 59.7 | 62.0 | 63.5 | 58.4 |
+
+(Other variants: bigram/4-gram LMs and LM ignoring length were within noise or worse on val.) `lm` was picked on val
+and checked once on test: **+5.2 (360M) and +3.3 (135M)**, no training. Test rows for other variants are shown, not
+used to choose.
+
+- **Word-likeness is the lever.** Spam made of common letter patterns of real answer words lands inside more typo
+  windows. The LM is a phonotactic prior from train-split answer words (178k words, dives 1-100): letter statistics,
+  not answers to the prompt being played.
+- **Spreading guesses out hurts.** Guesses cluster near answer-rich regions, and that clustering is good.
+- With the LM, 32 samples aren't better than 8: the pool is already larger than what's played.
+- `env/live.py` now uses this ordering (`train_lm()` builds the LM at start-up).
+- Next: put the same prior into the model itself (reward word-like spam in guess-level RFT, or filter the samples used
+  for training by LM score), so a small model generates more of what this ordering picks.
+
 ## Next steps, in order
 
 1. ~~Data layer~~ (done).

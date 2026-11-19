@@ -30,7 +30,7 @@ class SFTDataset:
         self.tok = tok
 
     def process(self, d):
-        p = self.tok.encode(render_prompt(self.tok, d["text"]), add_special_tokens=False)
+        p = self.tok.encode(render_prompt(self.tok, d["text"], d.get("system", "plan")), add_special_tokens=False)
         c = self.tok.encode(d["completion"], add_special_tokens=False) + [self.tok.eos_token_id]
         return (p + c, len(p))
 
