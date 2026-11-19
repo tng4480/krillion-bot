@@ -622,6 +622,49 @@ used to choose.
 - Next: put the same prior into the model itself (reward word-like spam in guess-level RFT, or filter the samples used
   for training by LM score), so a small model generates more of what this ordering picks.
 
+## Deterministic spam, no model (2026-11-19, `analysis/det_gen.py`, `analysis/det_seeds.py`)
+
+Can a letter model replace the LM for the spam? Char trigram over the words of TRAIN-split answers (dives 1-100),
+played with preview off, 50 guesses (or 40 + the 360M's own 10-answer tail, to isolate the spam part).
+
+Val (69 prompts), one variant each:
+
+| spam source | 50 spam, no tail | 40 + model tail |
+|---|---|---|
+| top-50 most likely strings, all train words | 38.5 | 49.9 |
+| same, wording clusters (k=10 / 30, tf-idf k-means) | 38.0 / 33.3 | 50.3 / 45.6 |
+| same, 10 / 40 most similar train prompts | 39.4 / 33.3 | 49.1 / 45.2 |
+| top-50 with near-duplicates removed (edit distance > 2) | 47.0 | 55.9 |
+| 10 most similar prompts, seeded samples | 45.1 | 52.5 |
+| **all train words, 1000 seeded samples, keep top 50 by log-prob** | **50.9** (sd 4.5 over seeds) | **57.4** |
+
+Pool size for the seeded version (10 seeds, val): 50 samples 34.8, 150 43.5, 400 46.9, 1000 49.1, 3000 48.7,
+10000 44.5. Ranking too hard collapses onto repeats ("graphy maraphy traphy braphy"); not ranking at all is junk.
+
+**Test, once (74 prompts, m=1000, 10 seeds): 53.7 (sd 3.6, range 46.5-59.7); 58.5 with the model tail.** Picking
+the seed by its train score doesn't help (train scores don't predict test). Train prompts score much lower overall
+(38.1), so the dive-1-100 prompts are harder than the later ones.
+
+Test-set comparison:
+
+| | test |
+|---|---|
+| one model list, 360M / 135M | 51.1 / 50.0 |
+| **one fixed letter-model list, same for every prompt, no model** | **53.7** |
+| model pipeline (8 samples, word-like order), 135M / 360M | 57.8 / 61.4 |
+| fixed list + 360M's obvious-answer tail | 58.5 |
+
+- **Most of the spam's value needs no model.** One fixed generic list of word-like 5-7 letter strings beats a single
+  model list. What the model adds on top is (a) its obvious-answer fallback ending, which is knowledge, and
+  (b) prompt-tailored spam: +7.7 for the 360M pipeline over the fixed list, ~+4 for the 135M.
+- **Per-category letter models don't help.** Fewer source words make the strings narrower; what lands is general
+  word-likeness, not category flavour.
+- Diversity matters here, unlike reordering model spam: near-duplicate strings waste guesses.
+- Not tried: optimizing a fixed list greedily on train prompts. That would select strings that are answers in many
+  past prompts, which drifts into answer reuse.
+- Consequence for "how small": the bar for a model is the fixed list (53.7) + a fallback ending. A tiny model has to
+  beat that, and the prompt-specific part of the 360M (~+3 over fixed list + tail) is what's left to keep.
+
 ## Next steps, in order
 
 1. ~~Data layer~~ (done).
