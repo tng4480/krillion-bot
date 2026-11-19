@@ -665,6 +665,39 @@ Test-set comparison:
 - Consequence for "how small": the bar for a model is the fixed list (53.7) + a fallback ending. A tiny model has to
   beat that, and the prompt-specific part of the 360M (~+3 over fixed list + tail) is what's left to keep.
 
+## Smaller models: pruning the 135M, Pythia-70M and 14M (2026-11-19)
+
+Scripts: `train/prune.py` (fuse the LoRA, then drop the block of consecutive layers with the smallest angular
+distance between its input and output on 64 training completions, Gromov et al. 2024), `train/prune_pipeline.sh`
+(score, heal with LoRA on the same spamshape4 data, score), `train/size_pipeline.sh` (the whole training program for a
+new model: SFT spam_v2 -> guess-level RFT rounds 1-3 -> round 4 with --shape -> val + test). `train/sft_lora.py` got
+`--full` (full fine-tune in fp32; Pythia ships fp16 and goes NaN) and `--warmup`. Pythia LR: 70M 3e-5 (1e-4 diverged),
+14M 1e-4. Two jobs ran in parallel under a 3 GB MLX cap each; peak use < 1 GB per job.
+
+| model | params (vocab part) | val, one list | test, one list | **test, live setup** (8 samples, word-like order, 50) |
+|---|---|---|---|---|
+| SmolLM2-360M spamshape4 | 362M (28M) | 50.6 | 51.1 | **61.4** |
+| SmolLM2-135M spamshape4 | 135M (28M) | 43.6 | 50.0 | **57.8** |
+| 135M, drop 6 layers (13-18), healed | 113M | 41.6 | 47.0 | 57.0 |
+| 135M, drop 10 (9-18), healed | 99M | 43.8 | 46.6 | 53.5 |
+| 135M, drop 15 (2-16), healed | 81M | 36.9 | 42.9 | 54.1 |
+| Pythia-70M, full program | 70M (51M) | 30.2 | 37.7 | 49.1 |
+| Pythia-14M, full program | 14M (13M) | 35.3 | 40.6 | 54.6 |
+| *fixed letter-model list, no model* | 0 | | | *53.7* |
+
+Unhealed pruned models: val 18.7 (drop 6), 14.5 (drop 10), 0.1 (drop 15). Healing is what makes pruning work.
+Pythia RFT hit rate per round: 70M 0.62 -> 0.70 -> 0.93 -> 1.02%; 14M 0.79 -> 1.02 -> 1.33 -> 1.45% (135M was ~2-4%).
+
+- **Pruning 6 of 30 layers costs ~1 point live** (57.8 -> 57.0); 10 or 15 drops it to the fixed-list level. The
+  middle layers are the least needed; the first and last ones matter most.
+- **Pythia-14M beats Pythia-70M**, probably because 70M's low learning rate (3e-5) undertrained it. Its RFT hit rate
+  was still rising each round, so more rounds may help.
+- **Below ~100M, the live setup lands at the fixed list (~54).** The word-like ordering does most of the work there; the
+  model adds little beyond what one zero-parameter list does. Only the 113M+ models clearly beat it (not yet
+  checked whether that's their spam or their obvious-answer endings).
+- Pythia's vocab is 51M of its 70M and 13M of its 14M; Pythia-14M has ~1M parameters of actual transformer.
+- Not done yet: distillation into a tiny letter-level model; prune *before* training (asked for later).
+
 ## Next steps, in order
 
 1. ~~Data layer~~ (done).

@@ -69,15 +69,21 @@ def main():
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--mem-gb", type=float, default=5.0, help="MLX memory limit (16 GB machine: keep <= 6)")
     ap.add_argument("--no-grad-checkpoint", action="store_true")
+    ap.add_argument("--warmup", type=int, default=0, help="linear warmup steps before the cosine decay")
+    ap.add_argument("--full", action="store_true", help="full fine-tune (all weights) instead of LoRA; for tiny models")
     a = ap.parse_args()
 
     mx.random.seed(a.seed)
     mx.set_memory_limit(int(a.mem_gb * 2**30)); mx.set_cache_limit(512 * 2**20)
     model, tok = load(a.model)
-    model.freeze()
     n_layers = len(model.layers) if a.layers < 0 else a.layers
     lora = {"rank": a.rank, "dropout": 0.0, "scale": a.scale}
-    linear_to_lora_layers(model, n_layers, lora)
+    if a.full:
+        model.set_dtype(mx.float32)   # fp16/bf16 full fine-tunes go NaN (Pythia ships fp16)
+        model.unfreeze()
+    else:
+        model.freeze()
+        linear_to_lora_layers(model, n_layers, lora)
     if a.resume:
         model.load_weights(a.resume, strict=False)
     n_train = sum(v.size for _, v in __import__("mlx.utils", fromlist=["tree_flatten"]).tree_flatten(
@@ -86,7 +92,7 @@ def main():
 
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     (out / "adapter_config.json").write_text(json.dumps(dict(
-        fine_tune_type="lora", num_layers=n_layers, lora_parameters=lora, model=a.model,
+        fine_tune_type="full" if a.full else "lora", num_layers=n_layers, lora_parameters=lora, model=a.model,
         data=a.data, iters=a.iters, batch_size=a.batch, learning_rate=a.lr, seed=a.seed), indent=1))
 
     train_set = SFTDataset(Path(a.data) / "train.jsonl", tok)
@@ -95,7 +101,10 @@ def main():
                          steps_per_eval=a.eval_every, steps_per_save=a.eval_every,
                          adapter_file=str(out / "adapters.safetensors"), max_seq_length=a.max_seq,
                          grad_checkpoint=not a.no_grad_checkpoint)
-    opt = optim.Adam(learning_rate=optim.cosine_decay(a.lr, a.iters, a.lr * 0.1))
+    sched = optim.cosine_decay(a.lr, a.iters - a.warmup, a.lr * 0.1)
+    if a.warmup:
+        sched = optim.join_schedules([optim.linear_schedule(a.lr * 0.01, a.lr, a.warmup), sched], [a.warmup])
+    opt = optim.Adam(learning_rate=sched)
     t0 = time.time()
     train(model=model, args=targs, optimizer=opt, train_dataset=CacheDataset(train_set),
           val_dataset=CacheDataset(valid_set), training_callback=Log(out / "log.jsonl"))
