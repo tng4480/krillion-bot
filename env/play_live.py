@@ -56,6 +56,8 @@ def main():
     ap.add_argument("--model", default=None, help="real time: read each prompt off the screen and sample now")
     ap.add_argument("--adapter", default=None)
     ap.add_argument("--n", type=int, default=8)
+    ap.add_argument("--spam", type=int, default=40, help="spam guesses before the 10-answer tail")
+    ap.add_argument("--name", default=None, help="short model name from analysis/models.py (sets --model/--adapter)")
     ap.add_argument("--out", required=True)
     ap.add_argument("--url", default="https://krillion.io/")
     ap.add_argument("--headless", action="store_true")
@@ -63,6 +65,11 @@ def main():
     lists = json.load(open(a.lists)) if a.lists else []
     by_text = {norm(p["text"]): p for p in lists}
     gen = None
+    if a.name:
+        import sys
+        sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "analysis"))
+        from models import MODELS
+        a.model, a.adapter = MODELS[a.name]
     if a.model:  # load everything before the dive starts; only sampling happens on the clock
         import sys
         sys.path[:0] = [str(Path(__file__).resolve().parent.parent / d) for d in ("eval", "probe", "data", "env", "analysis")]
@@ -71,9 +78,9 @@ def main():
         from play import MLXPolicy
         mx.set_memory_limit(5 * 2**30)
         lm = train_lm()
-        pol = MLXPolicy(a.model, a.adapter, temp=1.0, top_p=0.95, max_tokens=480, batch=8, system="spam")
+        pol = MLXPolicy(a.model, a.adapter, temp=1.0, top_p=0.95, max_tokens=480, batch=min(a.n, 64), system="spam")
         pol.sample("Name a fruit", None, None, 1)  # warm-up compile
-        gen = lambda text: build(pol.sample(text, None, None, a.n), 40, lm=lm)  # noqa: E731
+        gen = lambda text: build(pol.sample(text, None, None, a.n), a.spam, lm=lm)  # noqa: E731
         print("model ready")
     log = []
     with sync_playwright() as pw:

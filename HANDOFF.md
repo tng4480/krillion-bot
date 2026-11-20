@@ -828,3 +828,47 @@ Fresh Chrome profile (third player identity today). `runs/live/2026-11-20_run3_r
 
 The 440 replay (precomputed lists) and this 470 differ only in which samples were drawn: one day's spread between
 draws of the same model is about ±100.
+
+## Smaller models under the real clock (2026-11-20)
+
+Question: smaller models sample faster, so can they spam more words in the 25 s and score more?
+
+Speed (`analysis/speed.py`, `runs/speed.jsonl`; seconds to sample n lists in one batch, peak ≤ 2.1 GB):
+
+| model | n=8 | 16 | 32 | 64 | 128 |
+|---|---|---|---|---|---|
+| 360m | 3.17 | 4.16 | 5.3 | 14.99 | |
+| 135m | 2.85 | 3.79 | 5.48 | 10.79 | 22.78 |
+| 135m_distill_raw | 2.49 | 3.69 | 4.5 | 10.39 | 19.98 |
+| 135m_drop10 | 1.94 | 2.38 | 3.33 | 6.78 | 14.75 |
+| pythia70m_distill_pipeline | 0.81 | 1.12 | 2.19 | 4.69 | 10.3 |
+| pythia14m_distill_raw | 0.26 | 0.61 | 0.99 | 2.29 | 4.95 |
+
+SmolLM speed is set by sequence length more than size; Pythia is far faster.
+
+Live timing measured in Unlimited (`runs/live/2026-11-20_unl_p14.json`): the answer box opens ~3.2 s after the prompt
+text, so sampling under ~3 s is free; typing runs ~0.22 s per guess at 100+ guesses, so the cap is ~111 guesses.
+Budget model in `analysis/budget_sim.py`: G = floor((24.5 − max(0, t + 0.3 − 3.2)) / 0.22).
+
+Simulation (`analysis/sample_pool.py` pools, `analysis/budget_sim.py`; emulator, val 69 / test 74 prompts with pool ≥ 300,
+mean round score). Best per model:
+
+| model | n lists | guesses | val | test | mean |
+|---|---|---|---|---|---|
+| 135m_drop10 | 64 | 93 | 64.6 | 65.0 | 64.8 |
+| pythia70m_distill_pipeline | 64 | 103 | 65.4 | 64.1 | 64.8 |
+| 135m | 32 | 99 | 63.1 | 64.7 | 63.9 |
+| 135m_distill_raw | 32 | 104 | 61.7 | 65.5 | 63.6 |
+| 360m | 32 | 100 | 64.0 | 63.2 | 63.6 |
+| pythia14m_distill_pipeline | 8 | 111 | 61.9 | 64.7 | 63.3 |
+| pythia14m_distill_raw | 32 | 111 | 62.6 | 63.5 | 63.0 |
+| fixed list, no model | – | 111 | 54.3 | 56.6 | 55.5 |
+
+Reading: with ~100+ guesses every model lands within ~2 points (noise is ~±3), and all beat the no-model list by ~8.
+Speed doesn't buy points because sampling is mostly hidden behind the 3.2 s before the box opens, and extra lists add
+little new spam once the pool is ~100 deep. So **the 14M Pythia plays as well as the 360M**: it's the smallest working
+model so far. More guesses do help vs the old 50-guess setup (live-setup sim ~55–61 → ~63–65).
+
+Live check, real time, Unlimited: Pythia-14M distill-pipeline, 32 lists, 140-guess list (`env/play_live.py --name
+pythia14m_distill_pipeline --n 32 --spam 130`): **410, better than 97%**, sampling 0.8–1.9 s per prompt. Not yet
+played on a daily. `play_live.py` now takes `--name` (from `analysis/models.py`) and `--spam`.
