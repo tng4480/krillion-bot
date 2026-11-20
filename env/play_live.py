@@ -52,13 +52,29 @@ def prompt_text(pg):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--lists", required=True)
+    ap.add_argument("--lists", default=None, help="precomputed lists; omit with --model for a real-time run")
+    ap.add_argument("--model", default=None, help="real time: read each prompt off the screen and sample now")
+    ap.add_argument("--adapter", default=None)
+    ap.add_argument("--n", type=int, default=8)
     ap.add_argument("--out", required=True)
     ap.add_argument("--url", default="https://krillion.io/")
     ap.add_argument("--headless", action="store_true")
     a = ap.parse_args()
-    lists = json.load(open(a.lists))
+    lists = json.load(open(a.lists)) if a.lists else []
     by_text = {norm(p["text"]): p for p in lists}
+    gen = None
+    if a.model:  # load everything before the dive starts; only sampling happens on the clock
+        import sys
+        sys.path[:0] = [str(Path(__file__).resolve().parent.parent / d) for d in ("eval", "probe", "data", "env", "analysis")]
+        import mlx.core as mx
+        from live import build, train_lm
+        from play import MLXPolicy
+        mx.set_memory_limit(5 * 2**30)
+        lm = train_lm()
+        pol = MLXPolicy(a.model, a.adapter, temp=1.0, top_p=0.95, max_tokens=480, batch=8, system="spam")
+        pol.sample("Name a fruit", None, None, 1)  # warm-up compile
+        gen = lambda text: build(pol.sample(text, None, None, a.n), 40, lm=lm)  # noqa: E731
+        print("model ready")
     log = []
     with sync_playwright() as pw:
         b = pw.chromium.launch(channel="chrome", headless=a.headless)
@@ -69,18 +85,36 @@ def main():
         set_settings(pg)
         pg.click(".ds-begin-btn", force=True)
         box, dive = pg.locator(".ds-input"), pg.locator(".ds-dive-btn")
-        for k in range(len(lists)):
+        for k in range(len(lists) or 7):
+            gen_s, box_wait = None, None
+            if gen:  # real time: wait for this prompt's text on screen, sample, then type
+                t_q = time.time()
+                n, text = None, ""
+                while time.time() - t_q < 90:
+                    n, total, text = prompt_text(pg)
+                    if n == k + 1 and text:
+                        break
+                    time.sleep(0.1)
+                if n != k + 1:
+                    break
+                t_g = time.time()  # prompt text on screen
+                p = dict(pid=f"p{n}", text=text, guesses=gen(text))
+                gen_s = round(time.time() - t_g, 1)
+                lists.append(p)
             try:
                 box.wait_for(state="visible", timeout=90000)
             except Exception:
                 break
             t_box = time.time()
-            n, total, text = prompt_text(pg)
-            p = by_text.get(norm(text)) or next((q for t, q in by_text.items()
-                                                  if t and norm(text) and (t.startswith(norm(text)) or norm(text).startswith(t))), None)
-            if p is None:  # fall back to prompt order (unlimited mode, or a text mismatch)
-                p = lists[(n or k + 1) - 1]
-                print(f"  ! prompt text not in lists, using list {p['pid']}")
+            if gen:
+                box_wait = round(t_box - t_g, 1)  # prompt on screen -> first keystroke possible
+            else:
+                n, total, text = prompt_text(pg)
+                p = by_text.get(norm(text)) or next((q for t, q in by_text.items()
+                                                      if t and norm(text) and (t.startswith(norm(text)) or norm(text).startswith(t))), None)
+                if p is None:  # fall back to prompt order (unlimited mode, or a text mismatch)
+                    p = lists[(n or k + 1) - 1]
+                    print(f"  ! prompt text not in lists, using list {p['pid']}")
             typed = []
             for g in p["guesses"]:
                 if not box.is_visible() or not box.is_enabled():
@@ -110,7 +144,8 @@ def main():
             m = re.search(r"\n([A-Z][A-Z !'.-]{3,})\n+(.*)\n+([+-]?\d+ PTS[^\n]*)", body)
             res = " | ".join(m.groups()) if m else ""
             rec = dict(n=n, pid=p["pid"], text=text, typed=len(typed), last=typed[-1] if typed else None,
-                       seconds=round(t_end - t_box, 1), result=res)
+                       seconds=round(t_end - t_box, 1), result=res,
+                       sample_s=gen_s, text_to_typing_s=box_wait, guesses=p["guesses"])
             log.append(rec)
             print(f"p{n}: {len(typed)} guesses in {rec['seconds']}s, last '{rec['last']}' -> {res}", flush=True)
             if desc.count() and desc.first.is_visible():

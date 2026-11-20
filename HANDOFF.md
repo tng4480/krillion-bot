@@ -806,3 +806,25 @@ The extra 100 over the first run came only from speed (p1, which timed out the f
 wasn't captured: the first version closed the browser before Surface (fixed). Every hit came at guess 18 or earlier;
 the emulator gave the same lists 345 at 50 guesses (no aliases: it misses `carling` -> Kar-Karych and
 `manas` -> MAMA Awards).
+
+## First fully real-time run: Dive #128, 470, better than 95% (2026-11-20)
+
+`env/play_live.py --model mlx-community/SmolLM2-360M-Instruct --adapter checkpoints/spamshape4_smollm2-360m` runs
+the pipeline in the loop. The model and the word-likeness LM load before Begin. For each prompt the script reads the
+text off the game screen, samples 8 lists (MLX, batch 8), builds the 40 + 10 list (`env/live.py` `build`) and types
+it. Nothing is precomputed, and nothing comes from krillionanswer.today. Sampling takes 2.9-4.9 s, on the prompt clock
+(the box opens with the text); the 50 guesses then take ~8 s, so all fit inside 25 s.
+Fresh Chrome profile (third player identity today). `runs/live/2026-11-20_run3_realtime.{json,png,log}`:
+
+| prompt | sample s | guesses | hit | points |
+|---|---|---|---|---|
+| country with P | 3.7 | 7 | `perry` -> Peru | 10 |
+| movie before 2010 | 4.9 | 2 | `marian` -> Mariages! | 85 |
+| one-word color | 2.9 | 3 | `coper` -> Copper | 60 |
+| Drake etc. song | 4.6 | 8 | `kings` -> KING | 85 |
+| dog breed 25+ lb | 4.5 | 14 | `sally` -> Alaskan Malamute | 60 |
+| anime protagonist | 3.5 | 5 | `marth` -> Marth | 85 |
+| awards show | 4.2 | 4 | `trian` -> Gawad Urian | 85 |
+
+The 440 replay (precomputed lists) and this 470 differ only in which samples were drawn: one day's spread between
+draws of the same model is about ±100.
