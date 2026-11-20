@@ -1,0 +1,7 @@
+{
+ "weights": "checkpoints/distill_t360_pipeline_pythia-14m",
+ "top": 512,
+ "vocab": 779,
+ "seen": 512,
+ "params": 1389312
+}

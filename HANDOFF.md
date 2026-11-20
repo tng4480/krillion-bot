@@ -873,6 +873,40 @@ Live check, real time, Unlimited: Pythia-14M distill-pipeline, 32 lists, 140-gue
 pythia14m_distill_pipeline --n 32 --spam 130`): **410, better than 97%**, sampling 0.8–1.9 s per prompt. Not yet
 played on a daily. `play_live.py` now takes `--name` (from `analysis/models.py`) and `--spam`.
 
-Backups (2026-11-20): every model in `analysis/models.py` except `135m` variants already stored is now in git. The
+Backups (2026-11-20): every model in `analysis/models.py` up to this point is in git. The
 pruned 135M base (`checkpoints/spamshape4_135m_drop10/model.safetensors`, 198 MB) is stored as `shards/model.part*`;
 restore with `.venv/bin/python train/shard_ckpt.py join checkpoints/spamshape4_135m_drop10 model.safetensors`.
+
+## Vocabulary pruning: Pythia-14M down to 1.4M params (2026-11-20)
+
+91.5% of Pythia-14M is vocabulary: embed_in and embed_out (untied) are each 50,304 x 128 = 6.4M; the transformer is
+1.2M. `train/prune_vocab.py` keeps the K most frequent tokens of the distillation data (train prompts as rendered at
+play time + completions; K = 0 keeps all 23,735 seen), plus their BPE merge chains, the 256 byte tokens and the
+special tokens, renumbers them, slices both tables, and writes a plain mlx-lm folder with a cut `tokenizer.json`.
+Any text still encodes (rare words fall back to smaller pieces). Cut models are then retrained ("healed") 600 steps
+on `runs/sft/distill_t360_pipeline`, full fine-tune, lr 5e-5 (~15 s). Start: `distill_t360_pipeline_pythia-14m`.
+
+| model | vocab | params | same tokenization | s for 32 lists | val | test | mean (best n) |
+|---|---|---|---|---|---|---|---|
+| pythia14m_distill_pipeline | 50,304 | 14.07M | – | 0.99 | 61.9 | 64.7 | 63.3 |
+| p14_vocab_all (no retrain) | 24,632 | 7.50M | 100% | 0.48 | 61.1 | 64.4 | 62.8 |
+| p14_vocab8k | 8,808 | 3.44M | 52% | 0.35 | 60.4 | 67.9 | 64.2 |
+| p14_vocab4k | 4,492 | 2.34M | 20% | 0.34 | 64.8 | 66.3 | **65.5** |
+| p14_vocab2k | 2,364 | 1.80M | 9% | 0.37 | 63.3 | 64.8 | 64.0 |
+| p14_vocab1k | 1,296 | 1.52M | 3% | 0.38 | 61.7 | 65.9 | 63.8 |
+| p14_vocab512 | 779 | 1.39M | 2% | 0.42 | 60.5 | 65.3 | 62.9 |
+| 360m (reference) | | 362M | | 5.3 | 64.0 | 63.2 | 63.6 |
+| fixed list, no model | | 0 | | | 54.3 | 56.6 | 55.5 |
+
+(Budget sim as above, 111 guesses, pools of 32 lists. Unhealed cuts: 8k 63.0, 4k 61.4, so the retrain is worth ~4 at 4k.)
+Every cut down to 512 tokens plays as well as the 360M, within noise (~±3), and writes the same word-shaped spam.
+The vocab is no longer the bulk: at 512 tokens the 1.2M transformer is 85% of the model. Next lever is the
+transformer itself (drop layers, narrow the MLP) on top of a small-vocab model.
+
+Live, real time, Dive #128 (2026-11-20, fresh profile): `p14_vocab512` (1.39M params), 32 lists, 140-guess list
+(`env/play_live.py --name p14_vocab512 --n 32 --spam 130`, `runs/live/2026-11-20_run4_p14v512.json`): **485, better
+than 96%**, vs the 360M's 470 / 95% earlier the same day. Sampling 0.7–0.8 s per prompt (hidden behind the ~3.2 s
+before the box opens). Per prompt the same as the 360M except p1 (0 vs Peru 10) and p3 (Xander 85 vs Copper 60).
+Hits were near-miss spam the game accepts: shing→Swing, hander→Xander, ching→Chingy, petter→Irish Setter,
+mander→Xander Crews, carling→Cavling Prize. p1 typed 82 guesses in 24.8 s (~0.30 s each, slower than Unlimited).
+One day, so within noise of the 360M.

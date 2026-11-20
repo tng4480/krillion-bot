@@ -1,0 +1,26 @@
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+{'model': 'p14_vocab_all', 'n': 8, 'sec': 0.16, 'peak_gb': 0.08}
+{'model': 'p14_vocab_all', 'n': 16, 'sec': 0.27, 'peak_gb': 0.12}
+{'model': 'p14_vocab_all', 'n': 32, 'sec': 0.48, 'peak_gb': 0.24}
+{'model': 'p14_vocab_all', 'n': 64, 'sec': 1.15, 'peak_gb': 0.43}
+{'model': 'p14_vocab_all', 'n': 128, 'sec': 3.84, 'peak_gb': 0.43}
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+p14_vocab_all val 0 1s
+p14_vocab_all val 10 10s
+p14_vocab_all val 20 18s
+p14_vocab_all val 30 24s
+p14_vocab_all val 40 32s
+p14_vocab_all val 50 39s
+p14_vocab_all val 60 45s
+p14_vocab_all val done 51s
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+p14_vocab_all test 0 1s
+p14_vocab_all test 10 8s
+p14_vocab_all test 20 15s
+p14_vocab_all test 30 22s
+p14_vocab_all test 40 29s
+p14_vocab_all test 50 36s
+p14_vocab_all test 60 43s
+p14_vocab_all test 70 50s
+p14_vocab_all test done 52s
+LANEDONE

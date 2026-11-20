@@ -1,0 +1,15 @@
+{
+ "fine_tune_type": "full",
+ "num_layers": 6,
+ "lora_parameters": {
+  "rank": 16,
+  "dropout": 0.0,
+  "scale": 20.0
+ },
+ "model": "checkpoints/vocab512_pythia-14m",
+ "data": "runs/sft/distill_t360_pipeline",
+ "iters": 600,
+ "batch_size": 4,
+ "learning_rate": 5e-05,
+ "seed": 0
+}

@@ -1,0 +1,99 @@
+vocab 8808 (seen kept 8000, + bytes/specials/merge chains), params 3.44M
+identical tokenization on 274/530 sampled training texts; eos 0
+done in 23s -> checkpoints/heal_vocab8k_pythia-14m
+vocab 4492 (seen kept 4000, + bytes/specials/merge chains), params 2.34M
+identical tokenization on 107/530 sampled training texts; eos 0
+done in 17s -> checkpoints/heal_vocab4k_pythia-14m
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+{'model': 'p14_vocab8k_cut', 'n': 8, 'sec': 0.28, 'peak_gb': 0.06}
+{'model': 'p14_vocab8k_cut', 'n': 32, 'sec': 0.58, 'peak_gb': 0.18}
+{'model': 'p14_vocab8k_cut', 'n': 128, 'sec': 3.01, 'peak_gb': 0.31}
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+p14_vocab8k_cut val 0 1s
+p14_vocab8k_cut val 10 7s
+p14_vocab8k_cut val 20 12s
+p14_vocab8k_cut val 30 19s
+p14_vocab8k_cut val 40 25s
+p14_vocab8k_cut val 50 31s
+p14_vocab8k_cut val 60 37s
+p14_vocab8k_cut val done 42s
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+p14_vocab8k_cut test 0 1s
+p14_vocab8k_cut test 10 7s
+p14_vocab8k_cut test 20 13s
+p14_vocab8k_cut test 30 19s
+p14_vocab8k_cut test 40 23s
+p14_vocab8k_cut test 50 27s
+p14_vocab8k_cut test 60 30s
+p14_vocab8k_cut test 70 34s
+p14_vocab8k_cut test done 35s
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+{'model': 'p14_vocab8k', 'n': 8, 'sec': 0.12, 'peak_gb': 0.06}
+{'model': 'p14_vocab8k', 'n': 32, 'sec': 0.35, 'peak_gb': 0.17}
+{'model': 'p14_vocab8k', 'n': 128, 'sec': 1.96, 'peak_gb': 0.31}
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+p14_vocab8k val 0 0s
+p14_vocab8k val 10 4s
+p14_vocab8k val 20 8s
+p14_vocab8k val 30 11s
+p14_vocab8k val 40 15s
+p14_vocab8k val 50 19s
+p14_vocab8k val 60 22s
+p14_vocab8k val done 25s
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+p14_vocab8k test 0 0s
+p14_vocab8k test 10 4s
+p14_vocab8k test 20 8s
+p14_vocab8k test 30 12s
+p14_vocab8k test 40 15s
+p14_vocab8k test 50 19s
+p14_vocab8k test 60 23s
+p14_vocab8k test 70 26s
+p14_vocab8k test done 27s
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+{'model': 'p14_vocab4k_cut', 'n': 8, 'sec': 0.11, 'peak_gb': 0.06}
+{'model': 'p14_vocab4k_cut', 'n': 32, 'sec': 0.31, 'peak_gb': 0.16}
+{'model': 'p14_vocab4k_cut', 'n': 128, 'sec': 1.88, 'peak_gb': 0.29}
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+p14_vocab4k_cut val 0 0s
+p14_vocab4k_cut val 10 4s
+p14_vocab4k_cut val 20 7s
+p14_vocab4k_cut val 30 11s
+p14_vocab4k_cut val 40 14s
+p14_vocab4k_cut val 50 17s
+p14_vocab4k_cut val 60 21s
+p14_vocab4k_cut val done 23s
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+p14_vocab4k_cut test 0 0s
+p14_vocab4k_cut test 10 4s
+p14_vocab4k_cut test 20 7s
+p14_vocab4k_cut test 30 11s
+p14_vocab4k_cut test 40 14s
+p14_vocab4k_cut test 50 18s
+p14_vocab4k_cut test 60 21s
+p14_vocab4k_cut test 70 24s
+p14_vocab4k_cut test done 25s
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+{'model': 'p14_vocab4k', 'n': 8, 'sec': 0.12, 'peak_gb': 0.06}
+{'model': 'p14_vocab4k', 'n': 32, 'sec': 0.34, 'peak_gb': 0.21}
+{'model': 'p14_vocab4k', 'n': 128, 'sec': 1.89, 'peak_gb': 0.29}
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+p14_vocab4k val 0 0s
+p14_vocab4k val 10 4s
+p14_vocab4k val 20 8s
+p14_vocab4k val 30 11s
+p14_vocab4k val 40 15s
+p14_vocab4k val 50 18s
+p14_vocab4k val 60 22s
+p14_vocab4k val done 25s
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+p14_vocab4k test 0 0s
+p14_vocab4k test 10 4s
+p14_vocab4k test 20 7s
+p14_vocab4k test 30 11s
+p14_vocab4k test 40 15s
+p14_vocab4k test 50 18s
+p14_vocab4k test 60 21s
+p14_vocab4k test 70 25s
+p14_vocab4k test done 26s
+LANEDONE

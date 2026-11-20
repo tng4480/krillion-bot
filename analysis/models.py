@@ -11,4 +11,13 @@ MODELS = {
     "pythia14m": (P14, "checkpoints/spamshape4_pythia-14m"),
     "pythia14m_distill_raw": (P14, "checkpoints/distill_t360_raw_pythia-14m"),
     "pythia14m_distill_pipeline": (P14, "checkpoints/distill_t360_pipeline_pythia-14m"),
+    # vocab-pruned (train/prune_vocab.py): plain model folders, no adapter
+    "p14_vocab_all": ("checkpoints/vocab_all_pythia-14m", None),
+    "p14_vocab8k_cut": ("checkpoints/vocab8k_pythia-14m", None),
+    "p14_vocab8k": ("checkpoints/vocab8k_pythia-14m", "checkpoints/heal_vocab8k_pythia-14m"),
+    "p14_vocab4k_cut": ("checkpoints/vocab4k_pythia-14m", None),
+    "p14_vocab4k": ("checkpoints/vocab4k_pythia-14m", "checkpoints/heal_vocab4k_pythia-14m"),
+    "p14_vocab2k": ("checkpoints/vocab2k_pythia-14m", "checkpoints/heal_vocab2k_pythia-14m"),
+    "p14_vocab1k": ("checkpoints/vocab1k_pythia-14m", "checkpoints/heal_vocab1k_pythia-14m"),
+    "p14_vocab512": ("checkpoints/vocab512_pythia-14m", "checkpoints/heal_vocab512_pythia-14m"),
 }

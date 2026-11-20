@@ -1,0 +1,25 @@
+vocab 2364 (seen kept 2000, + bytes/specials/merge chains), params 1.80M
+identical tokenization on 47/530 sampled training texts; eos 0
+done in 11s -> checkpoints/heal_vocab2k_pythia-14m
+{'model': 'p14_vocab2k', 'n': 8, 'sec': 0.12, 'peak_gb': 0.06}
+{'model': 'p14_vocab2k', 'n': 32, 'sec': 0.37, 'peak_gb': 0.27}
+{'model': 'p14_vocab2k', 'n': 128, 'sec': 2.08, 'peak_gb': 0.31}
+p14_vocab2k val done 26s
+p14_vocab2k test done 28s
+vocab 1296 (seen kept 1000, + bytes/specials/merge chains), params 1.52M
+identical tokenization on 16/530 sampled training texts; eos 0
+done in 12s -> checkpoints/heal_vocab1k_pythia-14m
+{'model': 'p14_vocab1k', 'n': 8, 'sec': 0.15, 'peak_gb': 0.06}
+{'model': 'p14_vocab1k', 'n': 32, 'sec': 0.38, 'peak_gb': 0.3}
+{'model': 'p14_vocab1k', 'n': 128, 'sec': 2.29, 'peak_gb': 0.35}
+p14_vocab1k val done 28s
+p14_vocab1k test done 30s
+vocab 779 (seen kept 512, + bytes/specials/merge chains), params 1.39M
+identical tokenization on 9/530 sampled training texts; eos 0
+done in 15s -> checkpoints/heal_vocab512_pythia-14m
+{'model': 'p14_vocab512', 'n': 8, 'sec': 0.14, 'peak_gb': 0.06}
+{'model': 'p14_vocab512', 'n': 32, 'sec': 0.42, 'peak_gb': 0.29}
+{'model': 'p14_vocab512', 'n': 128, 'sec': 2.47, 'peak_gb': 0.38}
+p14_vocab512 val done 29s
+p14_vocab512 test done 31s
+LANEDONE
