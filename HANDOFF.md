@@ -718,3 +718,34 @@ Pythia RFT hit rate per round: 70M 0.62 -> 0.70 -> 0.93 -> 1.02%; 14M 0.79 -> 1.
 - `analysis/strategies.py`: strategy simulator.
 - `data/reveal/`: full answer lists. `data/probes/`: probe plans and results.
 - `notes/autocorrect-probe.md`, `notes/strategies.md`, `notes/data-sources.md`: findings.
+
+## Distilling the 360M into 135M and Pythia (2026-11-20)
+
+Teacher: `checkpoints/spamshape4_smollm2-360m`, 24 lists per prompt on 366 train prompts (pool >= 100, so the 149
+mid-size prompts are used for the first time). `train/teacher_sample.py` -> `runs/distill/teacher360.jsonl`;
+`train/distill_data.py` builds two sets; `train/distill_queue.sh` trains each student fresh from its base.
+- raw: every teacher list (8,784 rows).
+- pipeline: what the live builder plays from 8 teacher lists (pooled spam, shape + char-trigram order, 40 + tail),
+  12 groups per prompt (4,392 rows). The student learns to write the filtered list in one go.
+
+One list = eval/play.py E[round] at 40 tries; live = 8 samples + `select_sim.py` 'lm' (the real live setup).
+
+| student | val one list | test one list | val live | test live | before (RFT program), val/test live |
+|---|---|---|---|---|---|
+| 135M pipeline | 50.7 | 56.1 | 55.5 | 60.7 | 57.0 / 57.8 |
+| 135M raw | 44.3 | 53.0 | 57.6 | 56.8 | |
+| Pythia-70M pipeline | 47.2 | 53.0 | 51.4 | 63.0 | 47.8 / 49.1 |
+| Pythia-14M pipeline | 48.3 | 53.9 | 52.8 | 57.8 | 51.7 / 54.6 |
+| Pythia-14M raw | 39.5 | 46.0 | 52.3 | 58.9 | |
+| 360M teacher | 50.6 | 51.1 | 60.7 | 61.4 | |
+| fixed list, no model | | | 50.9 | 53.7 | |
+
+Before distillation, one list: 135M 43.6/50.0, Pythia-70M 30.2/37.7, Pythia-14M 35.3/40.6.
+- Distillation helps a lot for one list: +7 for the 135M, +13 to +17 for Pythia. The pipeline set gives the best one-list
+  students; the 135M pipeline student's single list (56.1 test) is about what the 135M scored with 8 samples + reranking.
+- Live gains are smaller and noisy (sd about 4 between seeds on 69-74 prompts; e.g. Pythia-70M test 63.0 vs val 51.4).
+  Averaged over val+test: 135M 57.4 -> 58.1, Pythia-70M 48.5 -> 57.2, Pythia-14M 53.2 -> 55.3, fixed list 52.3.
+- So a 14M-70M model trained on the 360M's lists beats the fixed list and nearly matches the 135M; in one pass it does
+  what the 135M needed 8 samples for. Pythia-70M learned the most (it was the worst under the RFT program).
+Next: token-level distillation (360M -> 135M share a tokenizer); distill from the pipeline at larger k / more teacher
+samples; prune-then-train (see memory); more val/test seeds to separate signals of this size from noise.
