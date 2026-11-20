@@ -872,3 +872,7 @@ model so far. More guesses do help vs the old 50-guess setup (live-setup sim ~55
 Live check, real time, Unlimited: Pythia-14M distill-pipeline, 32 lists, 140-guess list (`env/play_live.py --name
 pythia14m_distill_pipeline --n 32 --spam 130`): **410, better than 97%**, sampling 0.8–1.9 s per prompt. Not yet
 played on a daily. `play_live.py` now takes `--name` (from `analysis/models.py`) and `--spam`.
+
+Backups (2026-11-20): every model in `analysis/models.py` except `135m` variants already stored is now in git. The
+pruned 135M base (`checkpoints/spamshape4_135m_drop10/model.safetensors`, 198 MB) is stored as `shards/model.part*`;
+restore with `.venv/bin/python train/shard_ckpt.py join checkpoints/spamshape4_135m_drop10 model.safetensors`.

@@ -1,0 +1,15 @@
+{
+ "fine_tune_type": "full",
+ "num_layers": 6,
+ "lora_parameters": {
+  "rank": 16,
+  "dropout": 0.0,
+  "scale": 20.0
+ },
+ "model": "EleutherAI/pythia-14m",
+ "data": "runs/sft/spamshape4_pythia-14m",
+ "iters": 667,
+ "batch_size": 4,
+ "learning_rate": 0.0001,
+ "seed": 0
+}
