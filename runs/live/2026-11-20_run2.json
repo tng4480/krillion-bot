@@ -1,0 +1,72 @@
+{
+ "url": "https://krillion.io/",
+ "lists": "runs/live/2026-11-20_all/360m.json",
+ "score": null,
+ "better_than": null,
+ "prompts": [
+  {
+   "n": 1,
+   "pid": "p1",
+   "text": "Name a country with the letter P in its name",
+   "typed": 5,
+   "last": "parana",
+   "seconds": 1.3,
+   "result": "SCHOOLER | “Panama” | +30 PTS · sink 300m"
+  },
+  {
+   "n": 2,
+   "pid": "p2",
+   "text": "Name a movie that released before 2010 (1,000+ IMDb votes)",
+   "typed": 1,
+   "last": "manda",
+   "seconds": 0.3,
+   "result": "DEEP CUT | “Mandi” | +85 PTS · sink 850m"
+  },
+  {
+   "n": 3,
+   "pid": "p3",
+   "text": "Name a one-word color",
+   "typed": 9,
+   "last": "black",
+   "seconds": 3.0,
+   "result": "PLANKTON | “Black” | +10 PTS · sink 100m"
+  },
+  {
+   "n": 4,
+   "pid": "p4",
+   "text": "Name a song by Drake, Kendrick Lamar, Kanye West, Nicki Minaj, SZA, or Playboi Carti.",
+   "typed": 1,
+   "last": "bender",
+   "seconds": 0.2,
+   "result": "DEEP CUT | “Tender” | +85 PTS · sink 850m"
+  },
+  {
+   "n": 5,
+   "pid": "p5",
+   "text": "Name a dog breed that on average weighs 25+ pounds (11 kg)",
+   "typed": 5,
+   "last": "barber",
+   "seconds": 1.6,
+   "result": "DEEP CUT | “Barbet” | +85 PTS · sink 850m"
+  },
+  {
+   "n": 6,
+   "pid": "p6",
+   "text": "Name a protagonist from an anime or animated TV show (1,000+ votes on IMDb or listed on MAL)",
+   "typed": 1,
+   "last": "carling",
+   "seconds": 0.4,
+   "result": "DEEP CUT | “Kar-Karych” | +85 PTS · sink 850m"
+  },
+  {
+   "n": 7,
+   "pid": "p7",
+   "text": "Name an awards show",
+   "typed": 18,
+   "last": "manas",
+   "seconds": 5.1,
+   "result": "RARE | “MAMA Awards” | +60 PTS · sink 600m"
+  }
+ ],
+ "catch": ""
+}

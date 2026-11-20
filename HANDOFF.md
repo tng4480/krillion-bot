@@ -782,3 +782,27 @@ All models in the emulator on the day's answers (`analysis/score_day.py 2026-11-
 
 One day is 7 prompts: a single 85 moves a total by 85, so this ranking is mostly luck (sd per model per day is
 roughly 100). Val/test means remain the comparison. Every distilled student beat its undistilled version at 50 guesses.
+
+## Scripted live player: Dive #128 replay 440 (2026-11-20)
+
+`env/play_live.py` plays a dive through the game's own UI from a precomputed list, with no LLM in the loop. It uses
+Playwright with the installed Chrome and a fresh profile, so each run has no cookies and starts as a new player.
+It declines optional cookies (Settings -> Save + Exit with nothing ticked), sets corrections OFF, clear rejected ON
+and low-power ON, and clicks Begin. Then, per prompt, it fills the box, clicks DIVE, and waits until the box empties
+or goes away. Prompts are matched to lists by text. **0.16 s per guess: all 50 guesses in ~8 s** (the agent-driven
+harness managed ~18 guesses, with ~20 s lost before the first, while the agent wrote out its clicks).
+`--url https://krillion.io/unlimited/classic` tests it without touching the daily.
+
+Dive #128 replay, 360M `spamshape4` (same lists as the 340 run, `runs/live/2026-11-20_run2.*`): **440**.
+- p1 Panama 30 (#5)
+- p2 Mandi 85 (#1)
+- p3 Black 10 (#9)
+- p4 Tender 85 (#1)
+- p5 Barbet 85 (#5)
+- p6 Kar-Karych 85 (#1)
+- p7 MAMA Awards 60 (#18)
+
+The extra 100 over the first run came only from speed (p1, which timed out the first time, and p7). The percentile
+wasn't captured: the first version closed the browser before Surface (fixed). Every hit came at guess 18 or earlier;
+the emulator gave the same lists 345 at 50 guesses (no aliases: it misses `carling` -> Kar-Karych and
+`manas` -> MAMA Awards).

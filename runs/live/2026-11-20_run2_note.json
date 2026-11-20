@@ -1,0 +1,5 @@
+{"dive": 128, "model": "spamshape4_smollm2-360m", "harness": "env/play_live.py (first version), fresh Chrome profile",
+ "score": 440, "better_than": null, "note": "percentile not captured: first version closed the browser before Surface",
+ "prompts": {"p1": "parana -> Panama 30 (#5)", "p2": "manda -> Mandi 85 (#1)", "p3": "black -> Black 10 (#9)",
+  "p4": "bender -> Tender 85 (#1)", "p5": "barber -> Barbet 85 (#5)", "p6": "carling -> Kar-Karych 85 (#1)",
+  "p7": "manas -> MAMA Awards 60 (#18)"}}
