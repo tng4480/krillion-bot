@@ -749,3 +749,6 @@ Before distillation, one list: 135M 43.6/50.0, Pythia-70M 30.2/37.7, Pythia-14M 
   what the 135M needed 8 samples for. Pythia-70M learned the most (it was the worst under the RFT program).
 Next: token-level distillation (360M -> 135M share a tokenizer); distill from the pipeline at larger k / more teacher
 samples; prune-then-train (see memory); more val/test seeds to separate signals of this size from noise.
+Distilled students are backed up in git under `checkpoints/distill_t360_*`. The Pythia-70M one is 282 MB (over
+GitHub's 100 MB limit), so it's stored as two fp16 shards: `train/shard_ckpt.py join <dir>` rebuilds
+`adapters.safetensors`.
