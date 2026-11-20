@@ -752,3 +752,33 @@ samples; prune-then-train (see memory); more val/test seeds to separate signals 
 Distilled students are backed up in git under `checkpoints/distill_t360_*`. The Pythia-70M one is 282 MB (over
 GitHub's 100 MB limit), so it's stored as two fp16 shards: `train/shard_ckpt.py join <dir>` rebuilds
 `adapters.safetensors`.
+
+## Dive #128 (2026-11-20): live 340, and every model scored on the day
+
+Prompt texts from krillionanswer.today; lists from all 12 models with `env/live.py --out` (8 samples, 40 spam + 10),
+in `runs/live/2026-11-20_all/`. **Live, 360M: 340, better than 59%** (`runs/live/2026-11-20_result.json`):
+p1 timed out before any guess (the harness waited through the pre-prompt countdown, which runs in the prompt clock's
+favour: start typing as soon as the box shows), p2 `manda` -> Mandi 85, p4 Tender 85, p5 Barbet 85,
+p6 Kar-Karych 85 (an alias hit the emulator misses), p3 and p7 0. Only ~18 guesses fit per prompt this time (~1.3 s
+per guess with screenshots between batches), not the 50 planned.
+
+All models in the emulator on the day's answers (`analysis/score_day.py 2026-11-20`, `runs/live/2026-11-20_all_scores.json`):
+
+| model | 50 guesses | 18 guesses |
+|---|---|---|
+| 135M drop10 (pruned, healed) | 460 | 460 |
+| Pythia-14M distill raw | 430 | 315 |
+| Pythia-14M distill pipeline | 400 | 315 |
+| Pythia-70M distill pipeline | 400 | 230 |
+| 135M distill raw | 395 | 315 |
+| 135M distill pipeline | 375 | 290 |
+| 135M drop15 | 370 | 340 |
+| 135M | 355 | 315 |
+| 360M | 345 | 325 |
+| 135M drop6 | 335 | 325 |
+| Pythia-14M | 315 | 315 |
+| Pythia-70M | 290 | 290 |
+| fixed list, no model | 290 | 290 |
+
+One day is 7 prompts: a single 85 moves a total by 85, so this ranking is mostly luck (sd per model per day is
+roughly 100). Val/test means remain the comparison. Every distilled student beat its undistilled version at 50 guesses.

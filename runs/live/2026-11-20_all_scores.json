@@ -1,0 +1,392 @@
+{
+ "135m": {
+  "p1": {
+   "score": 10,
+   "hit": "Peru -> Peru (#41)"
+  },
+  "p2": {
+   "score": 85,
+   "hit": "ching -> Chino (#1)"
+  },
+  "p3": {
+   "score": 85,
+   "hit": "salle -> Sable (#5)"
+  },
+  "p4": {
+   "score": 85,
+   "hit": "tonight -> Tonight (#6)"
+  },
+  "p5": {
+   "score": 30,
+   "hit": "Poodle -> Poodle (#34)"
+  },
+  "p6": {
+   "score": 60,
+   "hit": "manda -> Mandy (#2)"
+  },
+  "p7": {
+   "score": 0,
+   "hit": ""
+  }
+ },
+ "135m_distill_pipeline": {
+  "p1": {
+   "score": 0,
+   "hit": ""
+  },
+  "p2": {
+   "score": 85,
+   "hit": "sting -> Swing (#1)"
+  },
+  "p3": {
+   "score": 60,
+   "hit": "minger -> Ginger (#5)"
+  },
+  "p4": {
+   "score": 85,
+   "hit": "ching -> Chingy (#1)"
+  },
+  "p5": {
+   "score": 85,
+   "hit": "barber -> Barbet (#25)"
+  },
+  "p6": {
+   "score": 60,
+   "hit": "bander -> Wander (#4)"
+  },
+  "p7": {
+   "score": 0,
+   "hit": ""
+  }
+ },
+ "135m_distill_raw": {
+  "p1": {
+   "score": 10,
+   "hit": "Philippines -> Philippines (#44)"
+  },
+  "p2": {
+   "score": 85,
+   "hit": "marium -> Marius (#1)"
+  },
+  "p3": {
+   "score": 85,
+   "hit": "mange -> Mango (#7)"
+  },
+  "p4": {
+   "score": 85,
+   "hit": "carter -> Cartier (#1)"
+  },
+  "p5": {
+   "score": 60,
+   "hit": "Whippet -> Whippet (#41)"
+  },
+  "p6": {
+   "score": 60,
+   "hit": "maria -> Daria (#1)"
+  },
+  "p7": {
+   "score": 10,
+   "hit": "Grammys ] -> Grammys (#50)"
+  }
+ },
+ "135m_drop10": {
+  "p1": {
+   "score": 60,
+   "hit": "palan -> Palau (#10)"
+  },
+  "p2": {
+   "score": 85,
+   "hit": "belle -> Bella (#1)"
+  },
+  "p3": {
+   "score": 85,
+   "hit": "pander -> Xander (#1)"
+  },
+  "p4": {
+   "score": 85,
+   "hit": "marian -> Maria (#4)"
+  },
+  "p5": {
+   "score": 85,
+   "hit": "collie -> Gollie (#15)"
+  },
+  "p6": {
+   "score": 60,
+   "hit": "shang -> Shana (#1)"
+  },
+  "p7": {
+   "score": 0,
+   "hit": ""
+  }
+ },
+ "135m_drop15": {
+  "p1": {
+   "score": 0,
+   "hit": ""
+  },
+  "p2": {
+   "score": 85,
+   "hit": "Mania -> Mafia! (#4)"
+  },
+  "p3": {
+   "score": 85,
+   "hit": "liver -> Liver (#5)"
+  },
+  "p4": {
+   "score": 85,
+   "hit": "stina -> Tina (#4)"
+  },
+  "p5": {
+   "score": 30,
+   "hit": "Boxer -> Boxer (#36)"
+  },
+  "p6": {
+   "score": 85,
+   "hit": "mange -> Ange (#1)"
+  },
+  "p7": {
+   "score": 0,
+   "hit": ""
+  }
+ },
+ "135m_drop6": {
+  "p1": {
+   "score": 10,
+   "hit": "poland -> Poland (#12)"
+  },
+  "p2": {
+   "score": 85,
+   "hit": "bille -> Billa (#1)"
+  },
+  "p3": {
+   "score": 85,
+   "hit": "matte -> Latte (#5)"
+  },
+  "p4": {
+   "score": 85,
+   "hit": "Action -> Action (#2)"
+  },
+  "p5": {
+   "score": 10,
+   "hit": "Great Danes -> Great Dane (#42)"
+  },
+  "p6": {
+   "score": 60,
+   "hit": "maria -> Daria (#1)"
+  },
+  "p7": {
+   "score": 0,
+   "hit": ""
+  }
+ },
+ "360m": {
+  "p1": {
+   "score": 10,
+   "hit": "Portugal -> Portugal (#45)"
+  },
+  "p2": {
+   "score": 85,
+   "hit": "manda -> Mandi (#1)"
+  },
+  "p3": {
+   "score": 10,
+   "hit": "black -> Black (#9)"
+  },
+  "p4": {
+   "score": 85,
+   "hit": "bender -> Tender (#1)"
+  },
+  "p5": {
+   "score": 85,
+   "hit": "barber -> Barbet (#5)"
+  },
+  "p6": {
+   "score": 60,
+   "hit": "herman -> He-Man (#11)"
+  },
+  "p7": {
+   "score": 10,
+   "hit": "Golden Globes -> Golden Globes (#44)"
+  }
+ },
+ "pythia14m": {
+  "p1": {
+   "score": 0,
+   "hit": ""
+  },
+  "p2": {
+   "score": 85,
+   "hit": "chine -> Chino (#1)"
+  },
+  "p3": {
+   "score": 85,
+   "hit": "lover -> Clover (#3)"
+  },
+  "p4": {
+   "score": 85,
+   "hit": "ching -> Chingy (#1)"
+  },
+  "p5": {
+   "score": 0,
+   "hit": ""
+  },
+  "p6": {
+   "score": 60,
+   "hit": "chana -> Shana (#6)"
+  },
+  "p7": {
+   "score": 0,
+   "hit": ""
+  }
+ },
+ "pythia14m_distill_pipeline": {
+  "p1": {
+   "score": 0,
+   "hit": ""
+  },
+  "p2": {
+   "score": 85,
+   "hit": "ching -> Chino (#1)"
+  },
+  "p3": {
+   "score": 85,
+   "hit": "sander -> Xander (#3)"
+  },
+  "p4": {
+   "score": 85,
+   "hit": "ching -> Chingy (#1)"
+  },
+  "p5": {
+   "score": 85,
+   "hit": "trever -> Drever (#31)"
+  },
+  "p6": {
+   "score": 60,
+   "hit": "manda -> Mandy (#10)"
+  },
+  "p7": {
+   "score": 0,
+   "hit": ""
+  }
+ },
+ "pythia14m_distill_raw": {
+  "p1": {
+   "score": 0,
+   "hit": ""
+  },
+  "p2": {
+   "score": 85,
+   "hit": "carling -> Darling (#2)"
+  },
+  "p3": {
+   "score": 85,
+   "hit": "aming -> Ming (#3)"
+  },
+  "p4": {
+   "score": 60,
+   "hit": "shire -> Shirt (#7)"
+  },
+  "p5": {
+   "score": 30,
+   "hit": "Poodle -> Poodle (#43)"
+  },
+  "p6": {
+   "score": 85,
+   "hit": "maton -> Matoi (#5)"
+  },
+  "p7": {
+   "score": 85,
+   "hit": "matas -> METAs (#39)"
+  }
+ },
+ "pythia70m": {
+  "p1": {
+   "score": 0,
+   "hit": ""
+  },
+  "p2": {
+   "score": 85,
+   "hit": "chine -> Chino (#1)"
+  },
+  "p3": {
+   "score": 60,
+   "hit": "linger -> Ginger (#2)"
+  },
+  "p4": {
+   "score": 85,
+   "hit": "stack -> Stuck (#11)"
+  },
+  "p5": {
+   "score": 0,
+   "hit": ""
+  },
+  "p6": {
+   "score": 60,
+   "hit": "manda -> Mandy (#1)"
+  },
+  "p7": {
+   "score": 0,
+   "hit": ""
+  }
+ },
+ "pythia70m_distill_pipeline": {
+  "p1": {
+   "score": 0,
+   "hit": ""
+  },
+  "p2": {
+   "score": 85,
+   "hit": "ching -> Chino (#1)"
+  },
+  "p3": {
+   "score": 85,
+   "hit": "braver -> Beaver (#28)"
+  },
+  "p4": {
+   "score": 85,
+   "hit": "million -> Millions (#7)"
+  },
+  "p5": {
+   "score": 85,
+   "hit": "barber -> Barbet (#30)"
+  },
+  "p6": {
+   "score": 60,
+   "hit": "sander -> Wander (#7)"
+  },
+  "p7": {
+   "score": 0,
+   "hit": ""
+  }
+ },
+ "fixed_list_no_model": {
+  "p1": {
+   "score": 0,
+   "hit": ""
+  },
+  "p2": {
+   "score": 85,
+   "hit": "mater -> Water (#1)"
+  },
+  "p3": {
+   "score": 60,
+   "hit": "penter -> Pewter (#2)"
+  },
+  "p4": {
+   "score": 85,
+   "hit": "mater -> Water (#1)"
+  },
+  "p5": {
+   "score": 0,
+   "hit": ""
+  },
+  "p6": {
+   "score": 60,
+   "hit": "mater -> Mater (#1)"
+  },
+  "p7": {
+   "score": 0,
+   "hit": ""
+  }
+ }
+}

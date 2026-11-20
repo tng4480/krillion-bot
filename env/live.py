@@ -68,6 +68,7 @@ def main():
     ap.add_argument("--n", type=int, default=8)
     ap.add_argument("--spam", type=int, default=40)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--out", default=None, help="default runs/live/<date>_lists.json")
     a = ap.parse_args()
     import mlx.core as mx
     mx.set_memory_limit(5 * 2**30); mx.random.seed(a.seed)
@@ -78,7 +79,7 @@ def main():
         g = build(pol.sample(p["text"], None, None, a.n), a.spam, lm=lm)
         out.append(dict(pid=p["pid"], text=p["text"], guesses=g))
         print(f'{p["pid"]} ({len(g)}): ' + " ; ".join(g), flush=True)
-    path = ROOT / "runs" / "live" / f"{a.date}_lists.json"
+    path = Path(a.out) if a.out else ROOT / "runs" / "live" / f"{a.date}_lists.json"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(out, indent=1, ensure_ascii=False))
     print("->", path)

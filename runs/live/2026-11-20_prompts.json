@@ -1,0 +1,30 @@
+[
+ {
+  "pid": "p1",
+  "text": "Name a country with the letter P in its name"
+ },
+ {
+  "pid": "p2",
+  "text": "Name a movie that released before 2010"
+ },
+ {
+  "pid": "p3",
+  "text": "Name a one-word color"
+ },
+ {
+  "pid": "p4",
+  "text": "Name a song by Drake, Kendrick Lamar, Kanye West, Nicki Minaj, SZA, or Playboi Carti."
+ },
+ {
+  "pid": "p5",
+  "text": "Name a dog breed that on average weighs 25+ pounds (11 kg)"
+ },
+ {
+  "pid": "p6",
+  "text": "Name a protagonist from an anime or animated TV show (1,000+ votes on IMDb or listed on MAL)"
+ },
+ {
+  "pid": "p7",
+  "text": "Name an awards show"
+ }
+]

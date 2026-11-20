@@ -1,0 +1,5 @@
+{"dive": 128, "model": "spamshape4_smollm2-360m", "lists": "runs/live/2026-11-20_all/360m.json", "score": 340, "better_than": 0.59,
+ "prompts": {"p1": {"score": 0, "note": "timed out before any guess (harness waited through the countdown)"},
+  "p2": {"guess": "manda", "answer": "Mandi", "score": 85}, "p3": {"answer": "\"vielle\"", "score": 0},
+  "p4": {"answer": "Tender", "score": 85}, "p5": {"answer": "Barbet", "score": 85},
+  "p6": {"answer": "Kar-Karych", "score": 85}, "p7": {"answer": "\"strider\"", "score": 0}}}
