@@ -3,3 +3,4 @@ jellyfish>=1.0
 pandas>=3.1
 pyarrow>=26.0
 mlx-lm>=0.32.2
+playwright  # env/play_live.py (uses the installed Google Chrome)
