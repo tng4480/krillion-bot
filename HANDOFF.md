@@ -965,3 +965,8 @@ live. Days 2026-11-18 (test split), 11-19 and 11-20 (Dive 128; neither in the tr
   3rd best. Either both live runs were lucky or the emulator undercounts live hits (the Dive 128 answer list has no
   aliases); probably some of each.
 - `env/play_live.py` now takes `--seed` (default: random, recorded in the output).
+
+Same day (2026-11-21), third play, fresh profile: **p14_vocab512** again, seed 947810199
+(`runs/live/2026-11-21_p14v512_b.json`): **515, better than 99%**, vs 445 for the same model earlier that day.
+Cairo 30, Men... (1985) 85, Chiton 85, Grafting spade 85, Pike-perch 60, The Calling 85, Spoing 85. The 70-point
+gap between two runs of one model on one day matches the 40–60-point seed spread from the replays.
