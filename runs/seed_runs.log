@@ -1,0 +1,15 @@
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+p14_vocab512   n= 32 G=111 2026-11-18  mean  553.8  sd  21.9  min  515  max  595  (86s)
+p14_vocab512   n= 32 G=111 2026-11-19  mean  310.5  sd  40.0  min  260  max  370  (173s)
+p14_vocab512   n= 32 G=111 2026-11-20  mean  355.0  sd  57.7  min  290  max  485  (275s)
+p14_vocab4k    n= 32 G=111 2026-11-18  mean  534.0  sd  30.2  min  460  max  570  (87s)
+p14_vocab4k    n= 32 G=111 2026-11-19  mean  316.8  sd  29.7  min  270  max  370  (176s)
+p14_vocab4k    n= 32 G=111 2026-11-20  mean  336.2  sd  42.5  min  260  max  405  (273s)
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 1769.19it/s]
+135m           n= 16 G=107 2026-11-18  mean  526.0  sd  40.2  min  415  max  595  (591s)
+135m           n= 16 G=107 2026-11-19  mean  356.2  sd  40.6  min  280  max  430  (1029s)
+135m           n= 16 G=107 2026-11-20  mean  384.5  sd  62.1  min  300  max  495  (1493s)
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files: 100%|██████████| 8/8 [00:00<00:00, 2791.09it/s]
+360m           n=  8 G=110 2026-11-18  mean  516.5  sd  41.1  min  415  max  570  (550s)
+360m           n=  8 G=110 2026-11-19  mean  358.5  sd  41.4  min  250  max  410  (1106s)
+360m           n=  8 G=110 2026-11-20  mean  386.5  sd  54.1  min  295  max  495  (1670s)

@@ -1,0 +1,38 @@
+{
+ "360m": {
+  "matched": 63.98550724637681,
+  "swapped": 54.39613526570048,
+  "spam_only": 60.507246376811594,
+  "spam_swapped": 55.628019323671495,
+  "overlap_other_prompt": 0.02779168630695161
+ },
+ "135m": {
+  "matched": 63.11594202898551,
+  "swapped": 57.07729468599034,
+  "spam_only": 59.492753623188406,
+  "spam_swapped": 57.77777777777778,
+  "overlap_other_prompt": 0.019633724737519877
+ },
+ "pythia14m_distill_pipeline": {
+  "matched": 61.30434782608695,
+  "swapped": 58.429951690821255,
+  "spam_only": 62.31884057971015,
+  "spam_swapped": 58.28502415458937,
+  "overlap_other_prompt": 0.15952112804077892,
+  "overlap_same_prompt": 0.22420964465733728
+ },
+ "p14_vocab4k": {
+  "matched": 64.78260869565217,
+  "swapped": 58.81642512077295,
+  "spam_only": 64.78260869565217,
+  "spam_swapped": 59.927536231884055,
+  "overlap_other_prompt": 0.1592796072587517
+ },
+ "p14_vocab512": {
+  "matched": 60.507246376811594,
+  "swapped": 59.44444444444444,
+  "spam_only": 60.507246376811594,
+  "spam_swapped": 59.44444444444444,
+  "overlap_other_prompt": 0.16271232733117005
+ }
+}

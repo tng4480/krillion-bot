@@ -910,3 +910,58 @@ before the box opens). Per prompt the same as the 360M except p1 (0 vs Peru 10) 
 Hits were near-miss spam the game accepts: shing→Swing, hander→Xander, ching→Chingy, petter→Irish Setter,
 mander→Xander Crews, carling→Cavling Prize. p1 typed 82 guesses in 24.8 s (~0.30 s each, slower than Unlimited).
 One day, so within noise of the 360M.
+
+Live, real time, Dive of 2026-11-21 (first play of the day, fresh profile, no prompts or answers seen beforehand):
+`p14_vocab512` (1.39M params), 32 lists, `--spam 130` (`runs/live/2026-11-21_p14v512.json`): **445, better than
+97%**. Sampling 0.9–1.1 s per prompt. Hits: beling→Beijing 10, sping→Spin 85, chion→Chion 85, granter→Grafting
+spade 85, paring→Shark 10, super→Super 85, sping→Spoing 85. Two prompts landed on a common answer (+10) after a few
+guesses; the near-miss spam is what scores.
+
+## Does the model read the prompt? (2026-11-21)
+
+`analysis/prompt_ablation.py`: the live 111-guess list (32 lists) scored against its own prompt's answers
+(matched) vs another prompt's answers (swapped, shifts 1/7/23); same with the 10-answer tail removed; and the
+spam-word overlap (Jaccard of the 101 spam words) between different prompts.
+
+| model | val matched | val swapped | test matched | test swapped | gain from the prompt | overlap across prompts |
+|---|---|---|---|---|---|---|
+| 360m | 64.0 | 54.4 | 63.9 | 58.3 | **+7.6** | 0.03 |
+| 135m | 63.1 | 57.1 | 64.7 | 59.9 | +5.4 | 0.02 |
+| pythia14m_distill_pipeline | 61.3 | 58.4 | 63.2 | 62.5 | +1.8 | 0.16 |
+| p14_vocab4k | 64.8 | 58.8 | 66.3 | 62.2 | +5.1 | 0.16 |
+| p14_vocab512 | 60.5 | 59.4 | 65.3 | 64.9 | **+0.8** | 0.16 |
+
+The 1.4M model barely uses the prompt: its list scores the same on the wrong question. It is a learned generic
+word-shape generator (a better one than the char-trigram fixed list, 55.5), sampled fresh each time. The SmolLMs
+write prompt-specific spam (2–3% overlap between prompts) and lose 5–8 points when swapped. Pythia lists overlap
+~16% across prompts and only 22% across two draws for the same prompt. The 10-answer tail adds ~nothing
+(spam-only ≈ matched). So small-model scores are mostly the game's near-miss matching, not reading the question;
+"matched − swapped" is the measure of actually playing the prompt and should be reported with every score.
+
+Same day (2026-11-21), second play, fresh profile: **360m**, real time, 8 lists, `--spam 130`
+(`runs/live/2026-11-21_360m.json`): **355, better than 83%** vs the 1.4M's 445 / 97%. Per prompt (1.4M | 360M):
+Beijing 10 | Vienna 30; Spin 85 | Prime 60; Chion 85 | Chile 85; Grafting spade 85 | Potato chip 60;
+Shark 10 | Capelin 60; Super 85 | nothing 0 (88 guesses); Spoing 85 | Croquet 60. Sampling 4.3–5.4 s per prompt
+(slower than the 3.2 s benchmark). The 360M landed mostly on 60s (RARE), the 1.4M on 85s plus two 10s. One day each.
+
+## Seed replays: how much of a live score is luck? (2026-11-21)
+
+`analysis/seed_runs.py`: whole dives replayed in the emulator, 20 seeds per model, same list build and guess budget as
+live. Days 2026-11-18 (test split), 11-19 and 11-20 (Dive 128; neither in the training data), answers from
+`data/reveal/`. `runs/seed_runs.json`. Game score (7 prompts) mean ± sd over seeds:
+
+| model | lists | 11-18 | 11-19 | 11-20 (Dive 128) | 3-day total |
+|---|---|---|---|---|---|
+| 360m | 8 | 517 ± 41 | 359 ± 41 | 387 ± 54 | 1262 ± 66 |
+| 135m | 16 | 526 ± 40 | 356 ± 41 | 385 ± 62 | 1267 ± 59 |
+| p14_vocab4k | 32 | 534 ± 30 | 317 ± 30 | 336 ± 43 | 1187 ± 42 |
+| p14_vocab512 | 32 | 554 ± 22 | 311 ± 40 | 355 ± 58 | 1219 ± 87 |
+
+- One game swings 40–60 points on the seed alone (range up to ~200), so a single live game can't rank models:
+  445 vs 355 on 2026-11-21 is within luck.
+- Over three days the SmolLMs lead the 1.4M by ~15 points a game (~2 standard errors): the small model is close,
+  not better. Which model wins depends on the day (1.4M best on 11-18, SmolLMs on 11-19 and 11-20).
+- The live Dive 128 scores were high draws: the 1.4M's 485 equals its best of 20 seeds, the 360M's 470 is its
+  3rd best. Either both live runs were lucky or the emulator undercounts live hits (the Dive 128 answer list has no
+  aliases); probably some of each.
+- `env/play_live.py` now takes `--seed` (default: random, recorded in the output).

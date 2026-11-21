@@ -61,6 +61,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--url", default="https://krillion.io/")
     ap.add_argument("--headless", action="store_true")
+    ap.add_argument("--seed", type=int, default=None, help="sampling seed (default: a random one, recorded in the output)")
     a = ap.parse_args()
     lists = json.load(open(a.lists)) if a.lists else []
     by_text = {norm(p["text"]): p for p in lists}
@@ -77,6 +78,11 @@ def main():
         from live import build, train_lm
         from play import MLXPolicy
         mx.set_memory_limit(5 * 2**30)
+        if a.seed is None:
+            import random
+            a.seed = random.randrange(2**31)
+        mx.random.seed(a.seed)
+        print("seed", a.seed)
         lm = train_lm()
         pol = MLXPolicy(a.model, a.adapter, temp=1.0, top_p=0.95, max_tokens=480, batch=min(a.n, 64), system="spam")
         pol.sample("Name a fruit", None, None, 1)  # warm-up compile
@@ -167,7 +173,7 @@ def main():
         m = re.search(r"COMPLETE\s*\n+(\d+)", body)
         bt = re.search(r"BETTER THAN (\d+)%", body)
         catch = body[body.find("THE CATCH"):body.find("LOGBOOK")] if "THE CATCH" in body else ""
-        out = dict(url=a.url, lists=a.lists, score=int(m.group(1)) if m else None,
+        out = dict(url=a.url, lists=a.lists, model=a.name or a.model, n=a.n, spam=a.spam, seed=a.seed, score=int(m.group(1)) if m else None,
                    better_than=int(bt.group(1)) if bt else None, prompts=log, catch=catch)
         Path(a.out + ".json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
         print("score", out["score"], "better than", out["better_than"], "%")
