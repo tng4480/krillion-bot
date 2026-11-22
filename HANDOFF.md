@@ -970,3 +970,8 @@ Same day (2026-11-21), third play, fresh profile: **p14_vocab512** again, seed 9
 (`runs/live/2026-11-21_p14v512_b.json`): **515, better than 99%**, vs 445 for the same model earlier that day.
 Cairo 30, Men... (1985) 85, Chiton 85, Grafting spade 85, Pike-perch 60, The Calling 85, Spoing 85. The 70-point
 gap between two runs of one model on one day matches the 40–60-point seed spread from the replays.
+
+Live, real time, 2026-11-22 (first play of the day, fresh profile, nothing seen beforehand): **p14_vocab512**,
+seed 914571197 (`runs/live/2026-11-22_p14v512.json`): **490, better than 99%**. ching→Ching 85,
+mation→Their Champion 85, caster→Gift shop 60, shing→Sling 30, ching→Chang's Mongolian Grill 85,
+pater→VACTERL association 85, bring→30-yard circle 60. Three prompts landed on the first guess.
