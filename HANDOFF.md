@@ -975,3 +975,8 @@ Live, real time, 2026-11-22 (first play of the day, fresh profile, nothing seen 
 seed 914571197 (`runs/live/2026-11-22_p14v512.json`): **490, better than 99%**. ching→Ching 85,
 mation→Their Champion 85, caster→Gift shop 60, shing→Sling 30, ching→Chang's Mongolian Grill 85,
 pater→VACTERL association 85, bring→30-yard circle 60. Three prompts landed on the first guess.
+
+Live, real time, 2026-11-23 (first play of the day, fresh profile): **p14_vocab512**, seed 479084610
+(`runs/live/2026-11-23_p14v512.json`): **435, better than 96%**. sping→Spinosaurus 60, mater→Master 60, p3 nothing
+(92 guesses), scher→Escher 85, chipper→Helicopter 85, sping→Spring 60, shing→Sheng 85.
+Live record of the 1.4M so far: 485, 445, 515, 490, 435.
