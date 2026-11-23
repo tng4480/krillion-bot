@@ -1,0 +1,6 @@
+train: 217 prompts, hit rate 0.0193, 75s
+val: 69 prompts, hit rate 0.0410, 70s
+test: 74 prompts, hit rate 0.0543, 151s
+2026-11-18: 7 prompts, hit rate 0.0686, 25s
+2026-11-19: 7 prompts, hit rate 0.0306, 9s
+2026-11-20: 7 prompts, hit rate 0.0544, 9s

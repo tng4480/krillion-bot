@@ -53,6 +53,7 @@ def prompt_text(pg):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--lists", default=None, help="precomputed lists; omit with --model for a real-time run")
+    ap.add_argument("--fixed", default=None, help="one fixed list typed on every prompt (json with 'list', e.g. runs/fixed/stat_list.json)")
     ap.add_argument("--model", default=None, help="real time: read each prompt off the screen and sample now")
     ap.add_argument("--adapter", default=None)
     ap.add_argument("--n", type=int, default=8)
@@ -64,6 +65,7 @@ def main():
     ap.add_argument("--seed", type=int, default=None, help="sampling seed (default: a random one, recorded in the output)")
     a = ap.parse_args()
     lists = json.load(open(a.lists)) if a.lists else []
+    fixed = json.load(open(a.fixed))["list"] if a.fixed else None
     by_text = {norm(p["text"]): p for p in lists}
     gen = None
     if a.name:
@@ -98,7 +100,7 @@ def main():
         set_settings(pg)
         pg.click(".ds-begin-btn", force=True)
         box, dive = pg.locator(".ds-input"), pg.locator(".ds-dive-btn")
-        for k in range(len(lists) or 7):
+        for k in range(7 if fixed else (len(lists) or 7)):
             gen_s, box_wait = None, None
             if gen:  # real time: wait for this prompt's text on screen, sample, then type
                 t_q = time.time()
@@ -121,6 +123,9 @@ def main():
             t_box = time.time()
             if gen:
                 box_wait = round(t_box - t_g, 1)  # prompt on screen -> first keystroke possible
+            elif fixed:
+                n, total, text = prompt_text(pg)
+                p = dict(pid=f"p{n or k + 1}", guesses=fixed)
             else:
                 n, total, text = prompt_text(pg)
                 p = by_text.get(norm(text)) or next((q for t, q in by_text.items()
@@ -173,7 +178,7 @@ def main():
         m = re.search(r"COMPLETE\s*\n+(\d+)", body)
         bt = re.search(r"BETTER THAN (\d+)%", body)
         catch = body[body.find("THE CATCH"):body.find("LOGBOOK")] if "THE CATCH" in body else ""
-        out = dict(url=a.url, lists=a.lists, model=a.name or a.model, n=a.n, spam=a.spam, seed=a.seed, score=int(m.group(1)) if m else None,
+        out = dict(url=a.url, lists=a.lists, fixed=a.fixed, model=a.name or a.model, n=a.n, spam=a.spam, seed=a.seed, score=int(m.group(1)) if m else None,
                    better_than=int(bt.group(1)) if bt else None, prompts=log, catch=catch)
         Path(a.out + ".json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
         print("score", out["score"], "better than", out["better_than"], "%")

@@ -980,3 +980,37 @@ Live, real time, 2026-11-23 (first play of the day, fresh profile): **p14_vocab5
 (`runs/live/2026-11-23_p14v512.json`): **435, better than 96%**. sping→Spinosaurus 60, mater→Master 60, p3 nothing
 (92 guesses), scher→Escher 85, chipper→Helicopter 85, sping→Spring 60, shing→Sheng 85.
 Live record of the 1.4M so far: 485, 445, 515, 490, 435.
+
+## A fixed statistical list beats the models in the emulator (2026-11-23)
+
+Since the small models barely read the prompt, optimise one fixed guess list directly.
+- `analysis/cand_pool.py`: candidates = strings our generators produce (4 Pythia variants x 16 lists x 700 train
+  prompts + 20k char-trigram samples): 319k distinct; top 40k by frequency kept. Nothing copied from answer lists.
+- `analysis/hit_table.py`: rejections don't change a round's state, so each guess has a fixed outcome per prompt.
+  Points of every candidate on every prompt (emulator rules via rapidfuzz cdist, checked against `predict`):
+  train/val/test prompts with >= 300 answers and the days 11-18/19/20. `runs/fixed/hits.npz`.
+- `analysis/opt_list.py`: coordinate ascent on exact train coverage (points of the first hit, mean over prompts).
+  Overfits: train ~80, val ~61, test 62–68 (217 train prompts, 111 slots).
+- `analysis/stat_list.py` (**the one to use**): rank candidates by train hit rate p x (points per hit e)^0.5, skip
+  near-duplicates (within 2 edits of one taken), take 111, order by e descending (optimal order for a fixed set
+  if hits were independent). alpha and dedup picked on val. `runs/fixed/stat_list.json`.
+
+Same 111-guess budget, same prompts:
+
+| list | train | val | test | 11-18 | 11-19 | 11-20 | 3 days |
+|---|---|---|---|---|---|---|---|
+| **stat_list (fixed)** | 67.1 | **72.1** | **69.9** | 540 | 385 | 425 | 1350 |
+| opt_list, min-support 5 | 78.8 | 61.6 | 67.8 | 570 | 340 | 315 | 1225 |
+| 360m, 32 lists (live build) | | 64.0 | 63.9 | 517* | 359* | 387* | 1262* |
+| p14_vocab512, 32 lists | | 60.5 | 65.3 | 554* | 311* | 355* | 1219* |
+| char-trigram fixed list | | 54.3 | 56.6 | | | | |
+(* mean over 20 seeds.) Other settings of the sweep: val 62–72, test 68–72; every one beats the models on test.
+
+The list is mechanics, not knowledge: 85 of 111 guesses are 5 letters and 17 are 8 letters, exactly where the
+matcher's tolerance steps up (1 edit from 5 letters, 2 from 8); a/n/m/t-heavy shapes (mondo, buron, rasha,
+patta, amara) sit one edit from many names. Hit rate per guess 6–18% of prompts, 61–85 points per hit.
+
+Live check, Unlimited (`env/play_live.py --fixed runs/fixed/stat_list.json --url .../unlimited/classic`): 315,
+better than 88% (one game). Three prompts landed on common 10-point answers (chima→Chimpanzee, tento→Coffee,
+chima→China); tento→Coffee isn't an edit-distance match, so the live matcher (aliases / a semantic fallback)
+can end rounds early on common answers that the emulator doesn't see. Not yet played on a daily.

@@ -1,0 +1,688 @@
+{
+ "alpha": 0.5,
+ "dedup": 2,
+ "G": 111,
+ "mean": {
+  "train": 67.14285714285714,
+  "val": 72.10144927536231,
+  "test": 69.86486486486487,
+  "2026-11-18": 77.14285714285714,
+  "2026-11-19": 55.0,
+  "2026-11-20": 60.714285714285715
+ },
+ "game": {
+  "2026-11-18": 540,
+  "2026-11-19": 385,
+  "2026-11-20": 425
+ },
+ "list": [
+  "mondo",
+  "buron",
+  "rasha",
+  "baira",
+  "bache",
+  "raise",
+  "choki",
+  "lagua",
+  "charment",
+  "patta",
+  "amara",
+  "brani",
+  "lunda",
+  "alash",
+  "toton",
+  "deman",
+  "salto",
+  "chima",
+  "carolina",
+  "terny",
+  "tempe",
+  "revel",
+  "lander",
+  "paradine",
+  "fireball",
+  "blink",
+  "elita",
+  "michi",
+  "tamin",
+  "marti",
+  "tamarang",
+  "arina",
+  "soria",
+  "sable",
+  "ceres",
+  "maino",
+  "stack",
+  "curle",
+  "mania",
+  "bango",
+  "koshi",
+  "darian",
+  "carper",
+  "barik",
+  "satar",
+  "sunic",
+  "kally",
+  "koran",
+  "snoop",
+  "inger",
+  "samba",
+  "tento",
+  "besta",
+  "kayak",
+  "coney",
+  "paras",
+  "mines",
+  "match",
+  "clark",
+  "forester",
+  "victoria",
+  "della",
+  "strat",
+  "karma",
+  "freed",
+  "winga",
+  "hummer",
+  "spine",
+  "marson",
+  "painting",
+  "piper",
+  "babel",
+  "brook",
+  "daven",
+  "sandi",
+  "malan",
+  "brush",
+  "branding",
+  "wallow",
+  "waler",
+  "butter",
+  "stension",
+  "bille",
+  "rocke",
+  "merlin",
+  "venna",
+  "chane",
+  "prime",
+  "moster",
+  "plana",
+  "alive",
+  "trama",
+  "blobster",
+  "pollo",
+  "porth",
+  "camet",
+  "stringer",
+  "starling",
+  "shakaria",
+  "fance",
+  "shari",
+  "superman",
+  "paration",
+  "crain",
+  "lover",
+  "tomation",
+  "store",
+  "cleam",
+  "limon",
+  "runch",
+  "romeo"
+ ],
+ "stats": [
+  {
+   "word": "mondo",
+   "hit_rate": 0.1279,
+   "points": 85.0
+  },
+  {
+   "word": "buron",
+   "hit_rate": 0.0822,
+   "points": 85.0
+  },
+  {
+   "word": "rasha",
+   "hit_rate": 0.0776,
+   "points": 85.0
+  },
+  {
+   "word": "baira",
+   "hit_rate": 0.0731,
+   "points": 85.0
+  },
+  {
+   "word": "bache",
+   "hit_rate": 0.0731,
+   "points": 85.0
+  },
+  {
+   "word": "raise",
+   "hit_rate": 0.0685,
+   "points": 85.0
+  },
+  {
+   "word": "choki",
+   "hit_rate": 0.0685,
+   "points": 85.0
+  },
+  {
+   "word": "lagua",
+   "hit_rate": 0.0639,
+   "points": 85.0
+  },
+  {
+   "word": "charment",
+   "hit_rate": 0.0639,
+   "points": 85.0
+  },
+  {
+   "word": "patta",
+   "hit_rate": 0.1187,
+   "points": 84.0
+  },
+  {
+   "word": "amara",
+   "hit_rate": 0.1416,
+   "points": 83.9
+  },
+  {
+   "word": "brani",
+   "hit_rate": 0.0822,
+   "points": 83.6
+  },
+  {
+   "word": "lunda",
+   "hit_rate": 0.0822,
+   "points": 83.6
+  },
+  {
+   "word": "alash",
+   "hit_rate": 0.0776,
+   "points": 83.5
+  },
+  {
+   "word": "toton",
+   "hit_rate": 0.0776,
+   "points": 83.5
+  },
+  {
+   "word": "deman",
+   "hit_rate": 0.0776,
+   "points": 82.9
+  },
+  {
+   "word": "salto",
+   "hit_rate": 0.1005,
+   "points": 82.7
+  },
+  {
+   "word": "chima",
+   "hit_rate": 0.1005,
+   "points": 82.7
+  },
+  {
+   "word": "carolina",
+   "hit_rate": 0.0868,
+   "points": 82.4
+  },
+  {
+   "word": "terny",
+   "hit_rate": 0.0822,
+   "points": 82.2
+  },
+  {
+   "word": "tempe",
+   "hit_rate": 0.0776,
+   "points": 82.1
+  },
+  {
+   "word": "revel",
+   "hit_rate": 0.0776,
+   "points": 82.1
+  },
+  {
+   "word": "lander",
+   "hit_rate": 0.0776,
+   "points": 81.8
+  },
+  {
+   "word": "paradine",
+   "hit_rate": 0.0685,
+   "points": 81.7
+  },
+  {
+   "word": "fireball",
+   "hit_rate": 0.0685,
+   "points": 81.7
+  },
+  {
+   "word": "blink",
+   "hit_rate": 0.1005,
+   "points": 81.6
+  },
+  {
+   "word": "elita",
+   "hit_rate": 0.0731,
+   "points": 81.6
+  },
+  {
+   "word": "michi",
+   "hit_rate": 0.0685,
+   "points": 81.3
+  },
+  {
+   "word": "tamin",
+   "hit_rate": 0.0731,
+   "points": 81.2
+  },
+  {
+   "word": "marti",
+   "hit_rate": 0.0959,
+   "points": 81.2
+  },
+  {
+   "word": "tamarang",
+   "hit_rate": 0.0868,
+   "points": 81.1
+  },
+  {
+   "word": "arina",
+   "hit_rate": 0.1096,
+   "points": 80.8
+  },
+  {
+   "word": "soria",
+   "hit_rate": 0.0868,
+   "points": 80.8
+  },
+  {
+   "word": "sable",
+   "hit_rate": 0.0776,
+   "points": 80.6
+  },
+  {
+   "word": "ceres",
+   "hit_rate": 0.0731,
+   "points": 80.3
+  },
+  {
+   "word": "maino",
+   "hit_rate": 0.0731,
+   "points": 80.0
+  },
+  {
+   "word": "stack",
+   "hit_rate": 0.0731,
+   "points": 80.0
+  },
+  {
+   "word": "curle",
+   "hit_rate": 0.0685,
+   "points": 80.0
+  },
+  {
+   "word": "mania",
+   "hit_rate": 0.1598,
+   "points": 79.9
+  },
+  {
+   "word": "bango",
+   "hit_rate": 0.1781,
+   "points": 79.5
+  },
+  {
+   "word": "koshi",
+   "hit_rate": 0.0822,
+   "points": 79.4
+  },
+  {
+   "word": "darian",
+   "hit_rate": 0.0822,
+   "points": 79.4
+  },
+  {
+   "word": "carper",
+   "hit_rate": 0.0822,
+   "points": 79.2
+  },
+  {
+   "word": "barik",
+   "hit_rate": 0.0822,
+   "points": 79.2
+  },
+  {
+   "word": "satar",
+   "hit_rate": 0.1187,
+   "points": 79.0
+  },
+  {
+   "word": "sunic",
+   "hit_rate": 0.0776,
+   "points": 78.8
+  },
+  {
+   "word": "kally",
+   "hit_rate": 0.0959,
+   "points": 78.8
+  },
+  {
+   "word": "koran",
+   "hit_rate": 0.1096,
+   "points": 78.8
+  },
+  {
+   "word": "snoop",
+   "hit_rate": 0.0685,
+   "points": 78.3
+  },
+  {
+   "word": "inger",
+   "hit_rate": 0.0685,
+   "points": 78.3
+  },
+  {
+   "word": "samba",
+   "hit_rate": 0.1507,
+   "points": 78.2
+  },
+  {
+   "word": "tento",
+   "hit_rate": 0.0868,
+   "points": 78.2
+  },
+  {
+   "word": "besta",
+   "hit_rate": 0.0822,
+   "points": 78.1
+  },
+  {
+   "word": "kayak",
+   "hit_rate": 0.0685,
+   "points": 77.7
+  },
+  {
+   "word": "coney",
+   "hit_rate": 0.105,
+   "points": 77.2
+  },
+  {
+   "word": "paras",
+   "hit_rate": 0.1142,
+   "points": 77.0
+  },
+  {
+   "word": "mines",
+   "hit_rate": 0.0913,
+   "points": 77.0
+  },
+  {
+   "word": "match",
+   "hit_rate": 0.0868,
+   "points": 76.8
+  },
+  {
+   "word": "clark",
+   "hit_rate": 0.0822,
+   "points": 76.7
+  },
+  {
+   "word": "forester",
+   "hit_rate": 0.0685,
+   "points": 76.7
+  },
+  {
+   "word": "victoria",
+   "hit_rate": 0.0685,
+   "points": 76.3
+  },
+  {
+   "word": "della",
+   "hit_rate": 0.1324,
+   "points": 76.2
+  },
+  {
+   "word": "strat",
+   "hit_rate": 0.0776,
+   "points": 76.2
+  },
+  {
+   "word": "karma",
+   "hit_rate": 0.1096,
+   "points": 76.0
+  },
+  {
+   "word": "freed",
+   "hit_rate": 0.1096,
+   "points": 76.0
+  },
+  {
+   "word": "winga",
+   "hit_rate": 0.1005,
+   "points": 75.9
+  },
+  {
+   "word": "hummer",
+   "hit_rate": 0.0776,
+   "points": 75.9
+  },
+  {
+   "word": "spine",
+   "hit_rate": 0.1187,
+   "points": 75.8
+  },
+  {
+   "word": "marson",
+   "hit_rate": 0.1005,
+   "points": 75.7
+  },
+  {
+   "word": "painting",
+   "hit_rate": 0.0731,
+   "points": 75.6
+  },
+  {
+   "word": "piper",
+   "hit_rate": 0.0868,
+   "points": 75.5
+  },
+  {
+   "word": "babel",
+   "hit_rate": 0.1005,
+   "points": 75.5
+  },
+  {
+   "word": "brook",
+   "hit_rate": 0.0868,
+   "points": 75.3
+  },
+  {
+   "word": "daven",
+   "hit_rate": 0.0868,
+   "points": 75.3
+  },
+  {
+   "word": "sandi",
+   "hit_rate": 0.1187,
+   "points": 75.2
+  },
+  {
+   "word": "malan",
+   "hit_rate": 0.1416,
+   "points": 75.2
+  },
+  {
+   "word": "brush",
+   "hit_rate": 0.0822,
+   "points": 75.0
+  },
+  {
+   "word": "branding",
+   "hit_rate": 0.0822,
+   "points": 75.0
+  },
+  {
+   "word": "wallow",
+   "hit_rate": 0.0731,
+   "points": 75.0
+  },
+  {
+   "word": "waler",
+   "hit_rate": 0.0822,
+   "points": 74.7
+  },
+  {
+   "word": "butter",
+   "hit_rate": 0.0685,
+   "points": 74.7
+  },
+  {
+   "word": "stension",
+   "hit_rate": 0.0685,
+   "points": 74.3
+  },
+  {
+   "word": "bille",
+   "hit_rate": 0.1187,
+   "points": 73.8
+  },
+  {
+   "word": "rocke",
+   "hit_rate": 0.0959,
+   "points": 73.8
+  },
+  {
+   "word": "merlin",
+   "hit_rate": 0.0913,
+   "points": 73.5
+  },
+  {
+   "word": "venna",
+   "hit_rate": 0.1005,
+   "points": 73.2
+  },
+  {
+   "word": "chane",
+   "hit_rate": 0.1096,
+   "points": 72.9
+  },
+  {
+   "word": "prime",
+   "hit_rate": 0.0868,
+   "points": 72.9
+  },
+  {
+   "word": "moster",
+   "hit_rate": 0.0776,
+   "points": 72.6
+  },
+  {
+   "word": "plana",
+   "hit_rate": 0.0868,
+   "points": 72.6
+  },
+  {
+   "word": "alive",
+   "hit_rate": 0.0959,
+   "points": 72.4
+  },
+  {
+   "word": "trama",
+   "hit_rate": 0.0868,
+   "points": 72.4
+  },
+  {
+   "word": "blobster",
+   "hit_rate": 0.0822,
+   "points": 72.2
+  },
+  {
+   "word": "pollo",
+   "hit_rate": 0.0822,
+   "points": 71.9
+  },
+  {
+   "word": "porth",
+   "hit_rate": 0.0731,
+   "points": 71.9
+  },
+  {
+   "word": "camet",
+   "hit_rate": 0.0731,
+   "points": 71.9
+  },
+  {
+   "word": "stringer",
+   "hit_rate": 0.105,
+   "points": 71.5
+  },
+  {
+   "word": "starling",
+   "hit_rate": 0.1233,
+   "points": 70.6
+  },
+  {
+   "word": "shakaria",
+   "hit_rate": 0.0731,
+   "points": 70.3
+  },
+  {
+   "word": "fance",
+   "hit_rate": 0.0776,
+   "points": 69.4
+  },
+  {
+   "word": "shari",
+   "hit_rate": 0.1142,
+   "points": 69.4
+  },
+  {
+   "word": "superman",
+   "hit_rate": 0.105,
+   "points": 68.9
+  },
+  {
+   "word": "paration",
+   "hit_rate": 0.0822,
+   "points": 68.9
+  },
+  {
+   "word": "crain",
+   "hit_rate": 0.1005,
+   "points": 68.9
+  },
+  {
+   "word": "lover",
+   "hit_rate": 0.1233,
+   "points": 68.0
+  },
+  {
+   "word": "tomation",
+   "hit_rate": 0.0776,
+   "points": 67.4
+  },
+  {
+   "word": "store",
+   "hit_rate": 0.0959,
+   "points": 65.5
+  },
+  {
+   "word": "cleam",
+   "hit_rate": 0.0959,
+   "points": 65.0
+  },
+  {
+   "word": "limon",
+   "hit_rate": 0.0822,
+   "points": 62.2
+  },
+  {
+   "word": "runch",
+   "hit_rate": 0.0822,
+   "points": 61.9
+  },
+  {
+   "word": "romeo",
+   "hit_rate": 0.0776,
+   "points": 61.2
+  }
+ ]
+}

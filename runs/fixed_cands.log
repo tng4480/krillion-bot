@@ -1,0 +1,8 @@
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer GPTNeoXTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+p14_vocab512: 138034 distinct, 254s
+p14_vocab4k: 105980 distinct, 213s
+Fetching 6 files:   0%|          | 0/6 [00:00<?, ?it/s]Fetching 6 files: 100%|██████████| 6/6 [00:00<00:00, 2600.85it/s]
+pythia14m_distill_pipeline: 79691 distinct, 583s
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 1770.65it/s]
+pythia70m_distill_pipeline: 94489 distinct, 1265s
+trigram: 20000; total distinct 318846
